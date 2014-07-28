@@ -1,0 +1,22 @@
+.media {
+	&, .bd {
+		overflow: hidden; 
+		_overflow: visible; 
+		zoom: 1;	
+		height: 100%; // added
+	}
+	
+	.img {
+		float: left; 
+		margin-right: 10px;		
+	
+		img {
+			display:block;
+		}
+	}
+	
+	.imgRight {
+		float: right; 
+		margin-left: 10px;
+	}
+}
