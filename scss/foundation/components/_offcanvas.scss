@@ -232,10 +232,9 @@ $menu-slide: "transform 500ms ease" !default;
   z-index: 1003;
   outline: 0;
   @if $position == left {
-    //border-right: $tabbar-left-section-border;
-    // box-shadow: 1px 0 0 scale-color($tabbar-bg, $lightness: 13%);
     left: 0;
-	background: #FFF;
+	background: #fff;
+	background: rgba(255,255,255,0.25);
   }
   @if $position == right {
     //border-left: $tabbar-right-section-border;
@@ -348,18 +347,25 @@ $menu-slide: "transform 500ms ease" !default;
 	
 	
 	// SIDEMENU	
-	.left-sidenav { @include sidenav-section($position: left); /*transition: #{$menu-slide}; */}
+	.left-sidenav { @include sidenav-section($position: left); }
 	.move-right .left-sidenav {
-		//transform: translate3d( -$off-canvas-width, 0, 0);
-		//transform: translate3d( $sidenav-width / 2, 0, 0);
-		//transition: #{$menu-slide};
-		
+		background: #fff;
 		.menu-icon {
 			transform: translate3d(1.5rem, 0px, 0px);
 		}
 	}
 	
-	.right-sidenav { @include sidenav-section($position: right); }
+	.right-sidenav { 
+		@include sidenav-section($position: right); 
+		
+		@media #{$small-only} {
+			background: rgba(51, 51, 51, 0.75);
+		}
+	}
+	
+	.move-left .right-sidenav {
+		background: #333;
+	}
 	
 	.sidenav .menu-icon {
 		width: $sidenav-width;
@@ -368,8 +374,6 @@ $menu-slide: "transform 500ms ease" !default;
 		padding: $tabbar-menu-icon-padding;
 		color: #333;
 		position: relative;
-		//transform: translate3d(0,0,0);
-		//transition: #{$menu-slide};
 		text-align: center;
 		outline: none;
 		will-change: transform;
@@ -395,8 +399,8 @@ $menu-slide: "transform 500ms ease" !default;
 		//margin-top: -(rem-calc(48) / 2);
 		transform: translate3d(0, 50vh, 0);
 		
-			img {
-				transform: translate3d(0, -24px, 0);
+			img, span {
+				transform: translate3d(0, -1.5rem, 0);
 			}
 	  }
     }
