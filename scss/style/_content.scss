@@ -43,7 +43,7 @@
 		overflow: hidden;
 		width: 100%;
 		height: 100%;
-		position: absolute;
+		position: relative;
 		background-size: cover;
 		background-position: 50%;		
 	}
@@ -64,8 +64,7 @@
 		text-align: center;
 		z-index: 1;
 		
-		.placeholder {
-			
+		.placeholder {			
 			@media #{$large-up} {
 				&::before {
 					content: "";
@@ -79,6 +78,10 @@
 				visibility: hidden;
 				display: none;
 			}
+		}
+		
+		&:hover .placeholder {
+			//transform: scale(1.05);	
 		}
 	
 		img {
@@ -101,10 +104,19 @@
 			font-size: 0;
 			opacity: 0;
 		}
-		figcaption {
+		
+		.entry-header {
 			backface-visibility: hidden;
-			padding: 2em;
+			padding: 1rem 2rem 0;
 			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);
+			height: 100%;			
+			position: relative;			
+			width: 100%;
+			transform: translate3d(0, -100%, 0);
+			
+			@media #{$medium-up} {
+				padding: 4rem 2rem 0;
+			}
 	
 			&::before, &::after {
 				pointer-events: none;
@@ -112,23 +124,14 @@
 		
 			.title {
 				text-transform: uppercase;
+				font-weight: 300;
 				
 				a {
 					color: #fff;
 				}
 			}
-
-			& {
-				height: 100%;
-				left: 0;
-				position: absolute;
-				top: 0;
-				width: 100%;
-			}
 		}
-		h2 {
-			font-weight: 300;
-		}
+		
 		h2, p {
 			//margin: 0;
 		}
@@ -142,23 +145,25 @@
 }
 
 figure.effect-lily {
-	img, 
 	.placeholder {
+		/*
     	width: -webkit-calc(100% + 60px);
 		width: calc(100% + 60px);
-		opacity: 1;
-		-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-		transition: opacity 0.35s, transform 0.35s;
-		-webkit-transform: translate3d(-30px,0,0) scale(1.05);
-		transform: translate3d(-30px,0,0) scale(1.05);
-		-webkit-backface-visibility: hidden;
+		*/		
+		opacity: 1;		
+		transition: opacity 0.32s, transform 0.32s;		
+		//transform: translate3d(-30px,0,0) scale(1.05);		
 		backface-visibility: hidden;
+		will-change: opacity;
 	}
-	&:hover {
-		img, .placeholder {
-			opacity: 0.75;
-			-webkit-transform: translate3d(0,0,0) scale(1);
-			transform: translate3d(0,0,0) scale(1);
+	&:hover {		
+		.placeholder {
+			opacity: 0.6;
+			-webkit-filter: blur(2px); 
+			-moz-filter: blur(2px); 
+			-o-filter: blur(2px); 
+			-ms-filter: blur(2px); 
+			filter: blur(2px);
 		}
 	}
 
@@ -295,7 +300,12 @@ figure.effect-lily {
 			//box-shadow: 0 999em 0 rgba(0, 0, 0, 0.5) inset;
 			opacity: 0.75;
 			z-index: -1;
-			transform: scale(1.05);			
+			transform: scale(1.05);
+			-webkit-filter: blur(10px); 
+			-moz-filter: blur(10px); 
+			-o-filter: blur(10px); 
+			-ms-filter: blur(10px); 
+			filter: blur(10px);
 		}
 		
 		.img {
@@ -328,36 +338,6 @@ figure.effect-lily {
 			height: 100%;
 			width: 200%;
 			margin-left: -50%;
-		}
-		
-	
-		.arrow {
-			position: absolute;
-			bottom: 1em;
-			left: 50%;
-			margin-left: -1em;			
-			z-index: 99;
-			color: #fff;
-			text-shadow: 0px 0px 5px #000;
-			//opacity: 0.6;
-			//transition: opacity .35s ease;
-			cursor: pointer;
-			@include animation('pulse 3s infinite');
-			
-			margin-bottom: 15em;
-			margin-bottom: 15vh;
-			
-			@media #{$large-up} {
-				bottom: 0;
-				margin-bottom: 3em;
-				margin-bottom: 2.5vh;
-				//opacity: 0.4;
-			}
-			
-			&:hover {
-				//opacity: 1;
-				@include animation('none');
-			}
 		}
 	}
 	
@@ -413,6 +393,23 @@ figure.effect-lily {
 	@media #{$large-up} {	
 		.post-content {			
 			padding: 3rem !important;
+		}
+	}
+	
+	.arrow {
+		position: relative;
+		display: block;			
+		text-align: center;
+		transform: translate3d(0, -3rem, 0);
+		color: #fff;
+		text-shadow: 0px 0px 5px #000;
+		cursor: pointer;
+		z-index: 1001;
+		//@include animation('pulse 3s infinite');
+		
+		&:hover {
+			//opacity: 1;
+			@include animation('none');
 		}
 	}
 }

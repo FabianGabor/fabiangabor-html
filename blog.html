@@ -16,18 +16,15 @@
 	
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css" />
+	
 	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/vendor/modernizr.js"></script>
 	
 	<style>
-	/*
-		@media only screen and (min-width: 64.063em) {
-			.archive figure:hover img {
-				filter: url(#blur);
-				filter: blur(3px);
-				filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
-			}
+		.blurbg {
+			filter: url(#blur);
+			filter: blur(20px);
+			filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='20');
 		}
-	*/
 	</style>
 
 </head>
@@ -35,7 +32,7 @@
     
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
     <filter id="blur">
-        <feGaussianBlur stdDeviation="4" />
+        <feGaussianBlur stdDeviation="5" />
     </filter>
 </svg>
 
@@ -242,44 +239,10 @@
     
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script async src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
-	<script async>
-		jQuery( window ).load(function() {
-			$(document).foundation();
-		});
-	</script>
-    <script>
-		//$(document).foundation();
-		
-		function fixHeights() {
-			var windowHeight = $( window ).height();
-			$( ".left-sidenav" ).height( windowHeight );
-			$( ".left-off-canvas-menu" ).height( windowHeight );						
-			document.getElementById('leftmenuIcon').style.transform = "translate(0, " + windowHeight/2 + "px";
-			document.getElementById('rightmenuIcon').style.transform = "translate(0, " + windowHeight/2 + "px";			
-		}
-		
-		function scrollbarWidth() {
-			var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>');
-			// Append our div, do our calculation and then remove it
-			$('body').append(div);
-			var w1 = $('div', div).innerWidth();
-			div.css('overflow-y', 'scroll');
-			var w2 = $('div', div).innerWidth();
-			$(div).remove();
-			return (w1 - w2);
-		}
-		
-		jQuery( document ).ready(function() {
-			//console.log( scrollbarWidth() );			
-			jQuery('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
-			fixHeights();
-		});
-		
-		
-		$( window ).resize(function() {
-			fixHeights();
-		});	  
-    </script>
+	<!--
+	<script async src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	-->
+	<script async src="js/vendor/scripts.js"></script>
 	
   </body>
 </html>
