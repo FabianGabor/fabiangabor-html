@@ -333,7 +333,8 @@ $menu-slide: "transform 500ms ease" !default;
     .inner-wrap { @include inner-wrap; }
 	
 	.main-section {
-		overflow-y: scroll;
+		//overflow-y: scroll;
+		overflow-y: auto;
 		height: 100%;
 		padding: 0 $sidenav-width;
 	}
