@@ -399,7 +399,7 @@ $menu-slide: "transform 500ms ease" !default;
 		//margin-top: -(rem-calc(48) / 2);
 		transform: translate3d(0, 50vh, 0);
 		
-			img, span {
+			img {
 				transform: translate3d(0, -1.5rem, 0);
 			}
 	  }

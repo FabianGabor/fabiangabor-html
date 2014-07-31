@@ -57,15 +57,26 @@
 	}
 }
 
-.archive {	
-	.archive-title {
-		font-weight: 300;
-	}
-	
+.archive-header {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.archive-title {
+	font-weight: 300;
+}
+
+
+.archive {
 	figure {
 		background: none repeat scroll 0 0 #000;
 		cursor: pointer;
 		height: 50vh;
+		
+		@media #{$medium-up} {
+			height: calc(50vh - 2.4375rem);
+		}
 		margin: 0;
 		overflow: hidden;
 		text-align: center;
@@ -180,6 +191,7 @@
 			text-transform: uppercase;			
 			text-shadow: 1px 1px 2px #000;
 			font-weight: 300;
+			margin: 0;
 			
 			@media #{$medium-up} {				
 				transform: translate3d(0px, 40px, 0px);
@@ -206,12 +218,15 @@
 			}
 		}
 		
-		p {
-			font-size: 68.5%;
-			letter-spacing: 1px;
-			
-			@media #{$medium-up} {
-				transform: translate3d(0px, 40px, 0px);
+		.entry-content {
+			p {
+				font-size: 0.618rem;
+				line-height: 1rem;
+				letter-spacing: 1px;
+				
+				@media #{$medium-up} {
+					transform: translate3d(0px, 40px, 0px);
+				}
 			}
 		}
 		
@@ -268,7 +283,7 @@ figure.effect-lily {
 	//background: rgba(#FFF, 0.95);
 	background-color: scale-color($tabbar-bg, $lightness: 100%);
 	background-image: repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.5) 2px, rgba(255,255,255,.5) 6px);
-	transition: 0.35s ease;
+	transition: 0.32s ease;
 	
 	a {
 		display: table-cell;
