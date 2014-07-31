@@ -366,7 +366,7 @@ $cursor-text-value: text !default;
   @if $include-html-global-classes {
 
     // Must be 100% for off canvas to work
-    html, body { height: 100%; }
+    //html, body { height: 100%; }
 
     // Set box-sizing globally to handle padding and border widths
     *,
@@ -391,7 +391,7 @@ $cursor-text-value: text !default;
       position: relative;
       cursor: $cursor-default-value;
     }
-
+	
   a:hover { cursor: $cursor-pointer-value; }
 
     // Grid Defaults to get images and embeds to work properly

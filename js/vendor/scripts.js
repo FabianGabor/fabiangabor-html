@@ -22,11 +22,8 @@ function fixHeights() {
 }
 
 function fixScrollbar() {
-	//var scale = $(window).width() / ( $(window).width()-scrollbarWidth() );
 	$('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
 	$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
-	
-	//$('.archive .main-section').css('transform', 'scaleX(' + scale + ')' ); // distorting!
 }
 
 function cover(windowHeight) {
@@ -34,10 +31,6 @@ function cover(windowHeight) {
 	//$("body.single-format-image #cover").height( windowHeight );	
 	var video = document.getElementById('video');
 	$("#video").css('transform', 'translate3d(0, ' + (windowHeight - $("#video").outerHeight())/2 + 'px, 0)' );
-	
-	//console.log( (windowHeight - $("#video").height())/2 );
-	
-	console.log( windowHeight );
 }
 
 
@@ -70,13 +63,15 @@ $('html').on('scroll', function() {
 });
 
 jQuery( window ).load(function() {
-	$(document).foundation();
+	$(document).foundation();	
 });
 
 jQuery( document ).ready(function() {
-	fixScrollbar();
+	if ( $("#content").height() > windowHeight ) {
+		fixScrollbar();
+	}
 	//fixHeights();
-	cover(windowHeight);
+	cover(windowHeight);	
 });
 
 var resizeId;
@@ -87,7 +82,9 @@ $( window ).resize(function() {
 
 function doneResizing(){
 	var windowHeight = $( window ).height();
-	fixScrollbar();
+	if ( $("#content").height() > windowHeight ) {
+		fixScrollbar();
+	}
 	//fixHeights();
 	cover(windowHeight);
 }
