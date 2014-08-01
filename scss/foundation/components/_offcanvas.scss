@@ -72,7 +72,7 @@ $off-canvas-overlay-background: rgba(#000, 0.75) !default;
 $off-canvas-overlay-background-hover: rgba(#000, 0.15) !default;
 
 // Transition Variables
-$menu-slide: "transform 320ms ease-in-out" !default;
+$menu-slide: "transform 512ms ease-in-out" !default;
 
 
 // MIXINS
@@ -236,7 +236,7 @@ $menu-slide: "transform 320ms ease-in-out" !default;
 @mixin sidenav-section($position) {
   width: $h2-line-height;
   height: $h2-line-height;
-  position: relative;
+  position: absolute;
   top: 0;
   bottom: 0;
   z-index: 9999;
@@ -346,7 +346,7 @@ $menu-slide: "transform 320ms ease-in-out" !default;
 	.off-canvas-menu {
 		position: fixed;
 		z-index: 9998;
-		pointer-events: none;
+		//pointer-events: none;
 		
 		
 		

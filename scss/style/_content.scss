@@ -79,6 +79,7 @@
 
 .archive-title {
 	font-weight: 300;
+	top: 0;
 }
 
 
@@ -86,15 +87,22 @@
 	#content {
 		float: left;
 		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		
+		@media #{$small-only} {
+			padding: $h3-font-size+$h3-margin-top 0 0;
+		}
 	}
 
 	figure {
 		background: none repeat scroll 0 0 #000;
 		cursor: pointer;
-		height: 50vh;
+		height: 100vh;
+		//height: calc(100vh - 2.4375rem);
 		
 		@media #{$medium-up} {
-			height: calc(50vh - 2.4375rem);
+			//height: calc(50vh - 2.4375rem);
 		}
 		margin: 0;
 		overflow: hidden;
@@ -102,31 +110,37 @@
 		z-index: 1;
 		
 		@media #{$landscape and $small-only} {
-			height: 100vh;
+			//height: 100vh;
 		}
 		
 		.placeholder {
+			/*
 			opacity: 1;							
 			transition: 0.32s;
+			*/
 			backface-visibility: hidden;
 			will-change: opacity, filter;
 			
 			@media #{$medium-up} {
+			/*
 				filter: blur(0);
 				-webkit-filter: blur(0); 
 				-moz-filter: blur(0); 
 				-o-filter: blur(0); 
 				-ms-filter: blur(0);
 				filter: url(blur.svg#blur0);
+			*/
 			}
 			
 			@media #{$large-up} {
+			/*
 				&::before {
 					content: "";
 					display: block;
 					width: 100%;
 					padding-bottom: 56.25%;
 				}
+			*/
 			}
 			
 			img {
@@ -135,10 +149,10 @@
 			}
 		}
 		
-		&:hover {		
-			.placeholder {				
+		&:hover {
+			.placeholder {
 				@media #{$medium-up} {
-					opacity: 0.25;
+					//opacity: 0.25;
 					/*
 					filter: blur(5);
 					-webkit-filter: blur(5); 
