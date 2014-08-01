@@ -22,6 +22,20 @@
   100% { opacity: 0.6; }
 }
 
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $h2-line-height;
+	z-index: 9999;
+	display: block;
+	background: rgba($body-bg, 1);
+	
+	@media #{$medium-up} {
+		background: none;
+	}
+}
 
 .blur {
 	filter: blur(5px);
@@ -69,6 +83,11 @@
 
 
 .archive {
+	#content {
+		float: left;
+		width: 100%;
+	}
+
 	figure {
 		background: none repeat scroll 0 0 #000;
 		cursor: pointer;

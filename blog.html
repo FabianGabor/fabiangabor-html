@@ -12,35 +12,59 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	-->
 
-	
 	<title>Foundation | Welcome</title>
 	
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css" />
 	
 	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/vendor/modernizr.js"></script>
-	
-	
 
 </head>
 <body class="archive category">
 
-<nav class="sidenav left-sidenav">
-	<a class="left-off-canvas-toggle menu-icon" href="#">
-		<div id="leftmenuIcon" class="icon-container">
-			<img src="img/logo-fg.png" width="39" height="48">
-		</div>
-	</a> 
-</nav>
+<div id="header">
+	<nav class="sidenav left-sidenav">
+		<a class="left-off-canvas-toggle menu-icon">
+			<div id="leftmenuIcon" class="icon-container">
+				<img src="img/logo-fg.png" width="39" height="48">
+			</div>
+		</a> 
+	</nav>
 
-<nav class="sidenav right-sidenav">
-	<a class="right-off-canvas-toggle menu-icon" href="#">
-		<div id="rightmenuIcon" class="icon-container">
-			<span></span>
-		</div>
-	</a> 
-</nav>
+	<nav class="sidenav right-sidenav">
+		<a class="right-off-canvas-toggle menu-icon">
+			<div id="rightmenuIcon" class="icon-container">
+				<span></span>
+			</div>
+		</a> 
+	</nav>
+	
+	<h1 class="archive-title h3 show-for-small-only small-only-text-center">Blog</h1>
+</div>
 
+<div class="off-canvas-wrap off-canvas-menu" data-offcanvas>
+	<div class="inner-wrap"> 
+		<aside class="left-off-canvas-menu vertical-center"> 
+			<ul class="off-canvas-list">
+				<li><a href="#">Reklám</a></li> 
+				<li><a href="#">Portré</a></li> 
+				<li><a href="#">Glamour</a></li> 
+				<li><a href="#">Művészi Akt</a></li> 
+				<li><a href="blog.html">Blog</a></li> 
+			</ul> 
+		</aside>
+
+		<aside class="right-off-canvas-menu"> 
+			<ul class="off-canvas-list"> 
+				<li><label>Users</label></li> 
+				<li><a href="#">Hari Seldon</a></li> 
+				<li><a href="#">...</a></li> 
+			</ul> 
+		</aside>
+		
+		<a class="exit-off-canvas"></a> 
+	</div>
+</div>    
 
 		
 <div class="off-canvas-wrap" data-offcanvas> 
@@ -48,9 +72,9 @@
 		<section class="main-section"> <!-- content goes here -->
 			
 			<div id="content">
-				<h1 class="archive-title h3">Blog</h1>
+				<h1 class="archive-title h3 hide-for-small small-only-text-center">Blog</h1>
 
-				<div class="row collapse">			
+				<div class="row collapse owl-carousel">			
 					<figure itemtype="http://schema.org/BlogPosting" itemscope="" data-id="" class="post large-4 medium-6 small-12 columns effect-lily box ratio3_2">
 						<div class="content">
 							<span class="placeholder" style="background-image:url(http://placekitten.com/600/1200)">
@@ -151,34 +175,16 @@
 			</div>
 		</section> 
 		
-		<a class="exit-off-canvas"></a> 
+		
 	</div> 
 </div>
 
-<aside class="left-off-canvas-menu vertical-center"> 
-	<ul class="off-canvas-list">
-		<li><a href="#">Reklám</a></li> 
-		<li><a href="#">Portré</a></li> 
-		<li><a href="#">Glamour</a></li> 
-		<li><a href="#">Művészi Akt</a></li> 
-		<li><a href="blog.html">Blog</a></li> 
-	</ul> 
-</aside>
-
-<aside class="right-off-canvas-menu"> 
-	<ul class="off-canvas-list"> 
-		<li><label>Users</label></li> 
-		<li><a href="#">Hari Seldon</a></li> 
-		<li><a href="#">...</a></li> 
-	</ul> 
-</aside>  
-    
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script async src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
 	<!--
+	<script async src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
 	<script async src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	-->
-	<script async src="js/vendor/scripts.js"></script>
+	<script async src="js/vendor/scripts.js"></script>	
 	
   </body>
 </html>
