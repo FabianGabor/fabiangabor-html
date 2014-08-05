@@ -37,7 +37,7 @@
 	$.fn.swipeEvents = function() {
       return this.each(function() {
 
-        var startX,
+        var //startX,
             startY,
             $this = $(this);
 
@@ -46,35 +46,46 @@
         function touchstart(event) {
           var touches = event.originalEvent.touches;
           if (touches && touches.length) {
-            startX = touches[0].pageX;
+            //startX = touches[0].pageX;
             startY = touches[0].pageY;
             $this.bind('touchmove', touchmove);
+			$this.bind('touchend', touchend);
           }
+		  //event.preventDefault();
         }
 
         function touchmove(event) {
           var touches = event.originalEvent.touches;
           if (touches && touches.length) {
-            var deltaX = startX - touches[0].pageX;
+            //var deltaX = startX - touches[0].pageX;
             var deltaY = startY - touches[0].pageY;
 
+			/*
             if (deltaX >= 50) {
               $this.trigger("swipeLeft");
             }
             if (deltaX <= -50) {
               $this.trigger("swipeRight");
             }
+			*/
             if (deltaY >= 50) {
               $this.trigger("swipeUp");
             }
             if (deltaY <= -50) {
               $this.trigger("swipeDown");
             }
-            if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
+            if (Math.abs(deltaY) >= 50) {
               $this.unbind('touchmove', touchmove);
+			  $this.unbind('touchend', touchend);
             }
           }
+		  event.preventDefault();
         }
+		
+		function touchend(event) {
+			$this.unbind('touchmove', touchmove);
+			//event.preventDefault(); // prevents clicking article link...
+		}
 
       });
     };
@@ -89,20 +100,19 @@
         topPos = 0,
         leftPos = 0,
         lastAnimation = 0,
-        quietPeriod = 250,
+        quietPeriod = 100,
         paginationList = "";
 
     $.fn.transformPage = function(settings, pos, index) {
       if (typeof settings.beforeMove == 'function') settings.beforeMove(index);
       $(this).css({
         "-webkit-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
-        //"-webkit-transition": "transform " + settings.animationTime + "ms " + settings.easing,
+        //"-webkit-transition": "all " + settings.animationTime + "ms " + settings.easing,
         "-moz-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
-        //"-moz-transition": "transform " + settings.animationTime + "ms " + settings.easing,
+        //"-moz-transition": "all " + settings.animationTime + "ms " + settings.easing,
         "-ms-transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
-        //"-ms-transition": "transform " + settings.animationTime + "ms " + settings.easing,
-        "transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)",
-        //"transition": "transform " + settings.animationTime + "ms " + settings.easing
+        //"-ms-transition": "all " + settings.animationTime + "ms " + settings.easing,
+        "transform": ( settings.direction == 'horizontal' ) ? "translate3d(" + pos + "%, 0, 0)" : "translate3d(0, " + pos + "%, 0)"        
       });
       $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
         if (typeof settings.afterMove == 'function') settings.afterMove(index);
@@ -232,10 +242,10 @@
 
 
         el.swipeEvents().bind("swipeDown",  function(event){
-          if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+          event.preventDefault();
           el.moveUp();
         }).bind("swipeUp", function(event){
-          if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+          event.preventDefault();
           el.moveDown();
         });
 
@@ -275,7 +285,7 @@
         top: topPos + "%"
       }).addClass("section").attr("data-index", i+1);
 	*/
-	  $(this).addClass("section").attr("data-index", i+1);
+	   $(this).addClass("section").attr("data-index", i+1);
       
       /*
       $(this).css({
@@ -287,11 +297,10 @@
           ? topPos + "%"
           : 0
       });
-	  */
-      
-      if (settings.direction == 'horizontal')
-        leftPos = leftPos + 100;
-      else
+      */
+      //if (settings.direction == 'horizontal')
+        //leftPos = leftPos + 100;
+      //else
         topPos = topPos + 100;
       
       
@@ -301,10 +310,10 @@
     });
 
     el.swipeEvents().bind("swipeDown",  function(event){
-      if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+      event.preventDefault();
       el.moveUp();
     }).bind("swipeUp", function(event){
-      if (!$("body").hasClass("disabled-onepage-scroll")) event.preventDefault();
+      event.preventDefault();
       el.moveDown();
     });
 
@@ -312,13 +321,13 @@
     if (settings.pagination == true) {
       if ($('ul.onepage-pagination').length < 1) $("<ul class='onepage-pagination'></ul>").prependTo("body");
       
-      if( settings.direction == 'horizontal' ) {
-        posLeft = (el.find(".onepage-pagination").width() / 2) * -1;
-        el.find(".onepage-pagination").css("margin-left", posLeft);
-      } else {
+      //if( settings.direction == 'horizontal' ) {
+        //posLeft = (el.find(".onepage-pagination").width() / 2) * -1;
+        //el.find(".onepage-pagination").css("margin-left", posLeft);
+      //} else {
         posTop = (el.find(".onepage-pagination").height() / 2) * -1;
         el.find(".onepage-pagination").css("margin-top", posTop);
-      }
+      //}
       $('ul.onepage-pagination').html(paginationList);
     }
 
@@ -381,7 +390,7 @@
       $(document).keydown(function(e) {
         var tag = e.target.tagName.toLowerCase();
 
-        if (!$("body").hasClass("disabled-onepage-scroll")) {
+        {
           switch(e.which) {
             case 38:
               if (tag != 'input' && tag != 'textarea') el.moveUp()

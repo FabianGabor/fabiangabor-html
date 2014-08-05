@@ -1,14 +1,15 @@
 .media {
-	&, .bd {
-		overflow: hidden; 
-		_overflow: visible; 
+	overflow: hidden; 
+	_overflow: visible; 
+		
+	&, .bd {		
 		zoom: 1;	
 		height: 100%; // added
 	}
 	
 	.img {
 		float: left; 
-		margin-right: 10px;		
+		//margin-right: 10px;		
 	
 		img {
 			display:block;
