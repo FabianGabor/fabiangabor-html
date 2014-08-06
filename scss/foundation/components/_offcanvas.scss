@@ -79,7 +79,6 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 
 // MIXINS
 @mixin translate3d($tx,$ty,$tz) {
-
       -ms-transform: translate($tx,$ty);
   -webkit-transform: translate3d($tx,$ty,$tz);
      -moz-transform: translate3d($tx,$ty,$tz);
@@ -101,7 +100,9 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 // Basic properties for the content wraps
 @mixin wrap-base {
   position: fixed;
+  width: 100%;
   width: 100vw;
+  height: 100%;
   height: 100vh;
 }
 
@@ -440,10 +441,12 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		}
 		
 		@media #{$medium-up} {
-			transform: translate3d(0, 50vh, 0);
+			//transform: translate3d(0, 50vh, 0);
+			@include translate3d(0, 50vh, 0);
 		
 			img {				
-				transform: translate3d(0, -$h2-line-height / 2, 0);
+				//transform: translate3d(0, -$h2-line-height / 2, 0);
+				@include translate3d(0, -$h2-line-height / 2, 0);
 			}
 		}
 		

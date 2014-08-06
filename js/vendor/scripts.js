@@ -1,5 +1,5 @@
 var windowHeight = $( window ).height();
-/*
+
 function offCanvasNav() {
 	var offCanvasWrap = document.getElementById('off-canvas-wrap');
 
@@ -25,38 +25,38 @@ function offCanvasNav() {
 		});
 	});
 }
-*/
+
 
 
 function scrollbarWidth() {	
 	$('body').append('<div id="outerSW" style="width:50px;height:50px;overflow:hidden;position:absolute;translate3d(-200px, -200px, 0);overflow-y:scroll;"><div id="innerSW" style="height:100px;"></div>');
 	var w1 = $('#outerSW').innerWidth();
 	var w2 = $('#innerSW').innerWidth();
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		$("#outerSW").remove();
-	});
+	//});
 	return (w1 - w2);
 }
 
 function fixHeights() {
 	//var windowHeight = $( window ).height();
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		$( ".left-sidenav" ).height( windowHeight );
 		$( ".left-off-canvas-menu" ).height( windowHeight );	
 		$( ".single .placeholder" ).height( windowHeight );
-	});
+	//});
 	
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		document.getElementById('leftmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
 		document.getElementById('rightmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
-	});
+	//});
 }
 
 function fixScrollbar() {
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		$('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
 		$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
-	});
+	//});
 }
 
 function cover(windowHeight) {
@@ -91,23 +91,23 @@ $('a[href^="#"]').on('click', function(event) {
 
 jQuery( window ).load(function() {
 	$(document).foundation();	
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		//offCanvasNav();
-	});
+	//});
 });
 
 jQuery( document ).ready(function() {
 	if ( $("#content").height() > windowHeight ) {
 	
-		requestAnimationFrame(function() {
+		//requestAnimationFrame(function() {
 			fixScrollbar();
-		});
+		//});
 	
 	}
 	//fixHeights();
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		cover(windowHeight);
-	});
+	//});
 });
 
 var onepagescroll = document.getElementById('onepagescroll');
@@ -146,9 +146,9 @@ function doneResizing(){
 	*/
 	//}
 	//fixHeights();
-	requestAnimationFrame(function() {
+	//requestAnimationFrame(function() {
 		cover(windowHeight);
-	});
+	//});
 }
 
 
