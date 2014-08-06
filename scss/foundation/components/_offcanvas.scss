@@ -253,7 +253,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 	@media #{$medium-up} {
 		//position: fixed;
 		height: 100%;
-		box-shadow: 0 0 3px 0 rgba(0,0,0,0.25);
+		//box-shadow: 0 0 3px 0 rgba(0,0,0,0.25);
 	}
 
 	@if $position == left {
@@ -334,9 +334,12 @@ $menu-slide: "transform 512ms ease-in-out" !default;
     bottom: 0;
     left:0;
     right:0;
-    z-index: 9999;
+    z-index: 9997;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 	
+	@media #{$small-only} {
+		z-index: 9999;
+	}
 }
 
 //
