@@ -1,25 +1,25 @@
 @mixin keyframes($animation-name) {
-  @-webkit-keyframes $animation-name {
-    @content;
-  }
-  @-moz-keyframes $animation-name {
-    @content;
-  }
-  @keyframes $animation-name {
-    @content;
-  }
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	@-moz-keyframes $animation-name {
+		@content;
+	}
+	@keyframes $animation-name {
+		@content;
+	}
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  animation: #{$str};
+	-webkit-animation: #{$str};
+	-moz-animation: #{$str};
+	animation: #{$str};
 }
 
 @include keyframes(pulse) {
-  0% { opacity: 0.6; }
-  50% { opacity: 0.1; }
-  100% { opacity: 0.6; }
+	0% { opacity: 0.6; }
+	50% { opacity: 0.1; }
+	100% { opacity: 0.6; }
 }
 
 .header {
@@ -141,21 +141,6 @@
 			position: relative;
 		}
 		
-		.entry-readmore {			
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			text-indent: 200%;
-			white-space: nowrap;
-			z-index: 1000;			
-			//transform: translate3d(0,-200%,0);
-			
-			-ms-touch-action: manipulation; /* IE10  */
-			touch-action: manipulation;     /* IE11+ */
-		}
-		
 		.entry-header {			
 			text-align: left;			
 			backface-visibility: hidden;
@@ -189,6 +174,28 @@
 			}
 		}	
 	}
+	
+	.entry-readmore {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		text-indent: 200%;
+		white-space: nowrap;
+		z-index: 1000;
+		transform: translateZ(0);
+		//pointer-events: none;
+		cursor: pointer;
+		
+		-ms-touch-action: manipulation; /* IE10  */
+		touch-action: manipulation;     /* IE11+ */
+	}
+	/*
+	.hover-active .active .entry-readmore {
+		pointer-events: initial;
+	}
+	*/
 
 }
 

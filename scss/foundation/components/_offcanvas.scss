@@ -78,10 +78,22 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 
 
 // MIXINS
+@mixin translate3d($tx,$ty,$tz) {
+
+      -ms-transform: translate($tx,$ty);
+  -webkit-transform: translate3d($tx,$ty,$tz);
+     -moz-transform: translate3d($tx,$ty,$tz);
+      -ms-transform: translate3d($tx,$ty,$tz);
+       -o-transform: translate3d($tx,$ty,$tz);
+          transform: translate3d($tx,$ty,$tz)
+}
+
+
+
 // Remove transition flicker on phones
 @mixin kill-flicker {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  @include translate3d(0,0,0);
+  
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -91,15 +103,6 @@ $menu-slide: "transform 512ms ease-in-out" !default;
   position: fixed;
   width: 100vw;
   height: 100vh;
-}
-
-@mixin translate3d($tx,$ty,$tz) {
-      -ms-transform: translate($tx,$ty);
-  -webkit-transform: translate3d($tx,$ty,$tz);
-     -moz-transform: translate3d($tx,$ty,$tz);
-      -ms-transform: translate3d($tx,$ty,$tz);
-       -o-transform: translate3d($tx,$ty,$tz);
-          transform: translate3d($tx,$ty,$tz)
 }
 
 // basic styles for off-canvas menu container
@@ -144,7 +147,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 // OFF CANVAS WRAP
 // Wrap visible content and prevent scroll bars
 @mixin off-canvas-wrap {
-  //@include kill-flicker;
+  @include kill-flicker;
   @include wrap-base;
   overflow: hidden;
   position: relative;
@@ -448,7 +451,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 			@include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true);
 			
 			span:after {
-				transform: translate3d(0, $h2-line-height / 2, 0);
+				@include translate3d(0, $h2-line-height / 2, 0);
 			}
 		}
 	  }
@@ -560,6 +563,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       }
     }
 
+	/*
     // Older browsers
     .no-csstransforms {
       .left-off-canvas-menu { left: -($off-canvas-width); }
@@ -568,6 +572,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       .move-left > .inner-wrap { right: $off-canvas-width; }
       .move-right > .inner-wrap { left: $off-canvas-width; }
     }
+	*/
 
   }
 }

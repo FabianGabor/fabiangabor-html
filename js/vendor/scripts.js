@@ -1,5 +1,5 @@
 var windowHeight = $( window ).height();
-
+/*
 function offCanvasNav() {
 	var offCanvasWrap = document.getElementById('off-canvas-wrap');
 
@@ -25,6 +25,8 @@ function offCanvasNav() {
 		});
 	});
 }
+*/
+
 
 function scrollbarWidth() {	
 	$('body').append('<div id="outerSW" style="width:50px;height:50px;overflow:hidden;position:absolute;translate3d(-200px, -200px, 0);overflow-y:scroll;"><div id="innerSW" style="height:100px;"></div>');
@@ -88,9 +90,9 @@ $('a[href^="#"]').on('click', function(event) {
 
 
 jQuery( window ).load(function() {
-	//$(document).foundation();	
+	$(document).foundation();	
 	requestAnimationFrame(function() {
-		offCanvasNav();
+		//offCanvasNav();
 	});
 });
 
@@ -169,5 +171,3 @@ window.addEventListener('scroll', function() {
 	},500);
 }, false);
 */
-
-

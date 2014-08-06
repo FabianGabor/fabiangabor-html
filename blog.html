@@ -100,14 +100,17 @@
 			
 			<div id="content">
 				<ul class="onepage-pagination"></ul>
-				<div id="onepagescroll">
+				<div id="onepagescroll" class="hover-active">
 				
-					<div itemtype="http://schema.org/BlogPosting" itemscope="" class="row post section placeholder-container media">
+					<div id="section-1" itemtype="http://schema.org/BlogPosting" itemscope="" class="row post section placeholder-container media">
+						<!--
 						<span class="placeholder hide-for-small-only" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=1024%2C576)"></span>
 						<span class="placeholder" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=512%2C288)"></span>
+						-->
+						<div class="placeholder" data-interchange="[http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=512%2C288, (default)], [http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=1024%2C576, (large)]"></div>
 						
-						<div class="img large-6 columns hide-for-small">
-							<div class="featuredImage" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=1024%2C576)">
+						<div class="img large-6 columns hide-for-small">							
+							<div class="featuredImage" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2013/11/fotografie-nud-2012-08-31.jpg?resize=812%2C457)">							
 								<img class="hidden" src="http://placekitten.com/600/1200" alt="placeholder" width="600" height="1200" style="display: none;">
 							</div>
 						</div>
@@ -125,11 +128,14 @@
 					</div>
 				
 					<div itemtype="http://schema.org/BlogPosting" itemscope="" class="post section placeholder-container media">
+						<!--
 						<span class="placeholder hide-for-small-only" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=746%2C1079)"></span>
 						<span class="placeholder" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=373%2C540)"></span>
+						-->
+						<div class="placeholder" data-interchange="[http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=373%2C540, (default)], [http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=746%2C1079, (large)]"></div>
 						
 						<div class="img large-6 hide-for-small">
-							<div class="featuredImage" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=746%2C1079)">
+							<div class="featuredImage" style="background-image:url(http://i1.wp.com/www.fabiangabor.com/wp-content/uploads/2011/12/fotografie-nud-2011-12-12-calendar-mtd.jpg?resize=567%2C821)">
 								<img class="hidden" src="http://placekitten.com/600/1200" alt="placeholder" width="600" height="1200" style="display: none;">
 							</div>
 						</div>
@@ -192,13 +198,16 @@
 		<a class="exit-off-canvas"></a> 
 	</div> 
 </div>
-
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/vendor/jquery.onepage-scroll.min.js"></script>
+	<script defer src="js/vendor/jquery.onepage-scroll.min.js"></script>
+	<script defer src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
+	<script defer src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation/foundation.interchange.min.js"></script>
+	
 	<!--
-	<script async src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
 	<script async src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	-->
-	<script async src="js/vendor/scripts.min.js"></script>		
+	<script defer src="js/vendor/scripts.min.js"></script>
+	
+	
   </body>
 </html>
