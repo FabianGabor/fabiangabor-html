@@ -90,9 +90,9 @@ $('a[href^="#"]').on('click', function(event) {
 
 
 jQuery( window ).load(function() {
-	$(document).foundation();	
+	//$(document).foundation();	
 	//requestAnimationFrame(function() {
-		//offCanvasNav();
+		offCanvasNav();
 	//});
 });
 

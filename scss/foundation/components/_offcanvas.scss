@@ -99,7 +99,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 
 // Basic properties for the content wraps
 @mixin wrap-base {
-  position: fixed;
+  position: absolute;
   width: 100%;
   width: 100vw;
   height: 100%;
@@ -112,10 +112,10 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 	* { @include kill-flicker; }
 	width: $off-canvas-width;
 	height: 100%;
-	//height: 100vh;
+	height: 100vh;
 	top: 0;
 	bottom: 0;
-	position: fixed;
+	position: absolute;
 	overflow-y: visible;
 	background: $off-canvas-bg;
 	z-index: 9999;
@@ -127,11 +127,6 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 	
 	//transition: #{$menu-slide};	
 	//will-change: transform;
-	
-	@media #{$small-only} {
-		padding-top: $h2-line-height;
-	}
-
 	
 	@if $position == left {
 		@include translate3d(-100%,0,0);
@@ -256,23 +251,16 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 	
   
 	@media #{$medium-up} {
-		position: fixed;
+		//position: fixed;
 		height: 100%;
 		box-shadow: 0 0 3px 0 rgba(0,0,0,0.25);
 	}
 
 	@if $position == left {
 		left: 0;
-		float: left;
 	}
 	@if $position == right {    
 		right:0;
-		float: right;
-		/*
-		@media #{$medium-up} {
-			background: #333;
-		}
-		*/
   }
 }
 
@@ -346,7 +334,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
     bottom: 0;
     left:0;
     right:0;
-    z-index: 1002;
+    z-index: 9999;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 	
 }
@@ -358,9 +346,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
   @if $include-html-off-canvas-classes {
 
     .off-canvas-wrap { @include off-canvas-wrap; }
-	.off-canvas-menu {
-		position: fixed;
-		z-index: 9998;
+	.off-canvas-menu {				
 		transform: translateZ(0);
 
 		&.move-left,
@@ -381,14 +367,6 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		}
 	}
 
-    .tab-bar { @include tab-bar-base; }
-
-    .left-small { @include tabbar-small-section($position: left); }
-    .right-small { @include tabbar-small-section($position: right); }
-
-    .tab-bar-section { @include tab-bar-section; }
-	
-	
 	// SIDEMENU	
 	.left-sidenav { @include sidenav-section($position: left); background: $off-canvas-bg;}
 	
@@ -407,7 +385,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		display: block;
 		padding: $tabbar-menu-icon-padding;
 		color: #333;
-		position: fixed;
+		position: absolute;
 		transform: translateZ(0);
 		text-align: center;
 		outline: none;
@@ -427,7 +405,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       @include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true);
 	  
 	  .icon-container {	  
-		position: fixed;			
+		position: absolute;
 		height: $h2-line-height;
 		width: $h2-line-height;
 		
@@ -438,6 +416,11 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		
 		.hamburger-icon {
 			padding: 14px;
+			width: 100%;
+			height: 100%;
+			@media #{$medium-up} {
+				transform: translateY(-50%) translateZ(0);
+			}
 		}
 		
 		@media #{$medium-up} {
@@ -562,7 +545,6 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       }
       .exit-offcanvas-menu {
         @include back-link;
-        z-index: 1002;
       }
     }
 
