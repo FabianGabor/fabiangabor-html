@@ -32,16 +32,14 @@
 	display: block;
 	background: $body-bg;
 	transform: translateZ(0);
-	padding: 0 $sidenav-width;
 	//box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 	text-align: center;
 	z-index: 9997;
 	
 	@media #{$medium-up} {
 		text-align: left;
-		float: left;
-		position: relative;
-		padding: 0;
+		//float: left;
+		//position: relative;
 		z-index: 9999;
 	}
 }
@@ -49,6 +47,7 @@
 .header-title {
 	font-weight: 300;
 	top: 0;
+	padding: 0 $sidenav-width + $h3-line-height;
 	margin: $h3-margin-top / 2 0;
 	transform: translateZ(0);
 }
@@ -111,9 +110,9 @@
 .archive {
 	#content {
 		float: left;
-		width: 100%;
+		width: 100%;		
 		height: 100%;
-		height: calc( 100vh - 3.25rem );
+		padding: $h3-font-size+$h3-margin-top 0 0;
 		overflow: hidden;
 		
 		@media #{$small-only} {
@@ -139,28 +138,7 @@
 				display: none;
 			}
 		}
-		
-		img {
-		/*
-			display: block;
-			height: 100%;
-			width: auto;
-			max-width: none;
-			position: relative;
-		*/
-			display: block;
-			width: auto;
-			max-height: 100%;
-			max-width: 100%;
-			position: relative;
-			top: 50%;
-			left: 50%;
-			-ms-transform: translate(-50%, -50%);
-			transform: translate3d(-50%, -50%, 0px);			
-		}
-		
-		
-		
+			
 		.entry-header {			
 			text-align: left;			
 			backface-visibility: hidden;
@@ -224,65 +202,6 @@
 			img {
 				transform: translate(-50%, -50%);
 			}
-		}
-	}
-}
-*/
-
-/*
-.effect-lily {
-	.entry-title {
-		@media #{$medium-up} {				
-			transform: translate3d(0px, 40px, 0px);
-			transition: transform 0.32s ease 0s;
-			will-change: transform;
-		}
-	}
-
-	.entry-content {
-		p {
-			@media #{$medium-up} {
-				transform: translate3d(0px, 40px, 0px);
-			}
-		}
-	}
-	
-	.datePublished {
-		@media #{$medium-up} {			
-			transform: translate3d(0px, -40px, 0px);
-		}
-	}
-	
-	.datePublished,
-	p {
-		@media #{$medium-up} {
-			color: rgba(255, 255, 255, 0.6);
-			opacity: 0;
-			transition: opacity 0.32s ease 0s, transform 0.32s ease 0s;
-			will-change: opacity, transform;
-		}
-	}
-
-	&:hover {		
-		.entry-title,
-		.datePublished,
-		p {
-			transform: translate3d(0px, 0px, 0px);
-		}
-		
-		.datePublished,
-		p {
-			opacity: 1;			
-		}
-		
-		.datePublished {
-			transition-delay: 0.16s;
-			transition-duration: 0.16s;
-		}
-		
-		p {
-			transition-delay: 0.32s;
-			transition-duration: 0.32s;
 		}
 	}
 }
@@ -363,39 +282,22 @@
 	.img {
 		height: 100%;
 		padding: 3rem;
-		/*
-		@media #{$small-only} {
-			padding: 0 3rem;
-		}
-	
-		@media #{$large-up} {		
-			padding: 3rem 0 3rem 3rem;
-			padding: 5vh 0 5vh 5vh;
-			margin-right: 5vh;
-	
-		}
-		*/
-	}
-	
-	
-	.featuredImage {
-		width: 100%;
-		height: 100%;
-		background-size: contain;
-		background-position: center center;
-		background-repeat: no-repeat;			
-	
-	
+		
 		img {
-			visibility: hidden;
+			display: block;
+			width: auto;
+			max-height: 100%;
+			max-width: 100%;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate3d(-50%, -50%, 0px);			
 		}
 	}
-	
-	.centerImage {
-		text-align: center;
+		
+	.bd {
 		height: 100%;
-		width: 200%;
-		margin-left: -50%;
 	}
 }
 
@@ -492,8 +394,12 @@
 	
 .single {
 	.main-section {
+		overflow-x: hidden;
 		overflow-y: scroll;
-	}		
+	}	
+	.placeholder-container {
+		padding-top: $sidenav-width;
+	}
 }
 	
 .arrow {

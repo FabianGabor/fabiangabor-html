@@ -242,25 +242,26 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 @mixin sidenav-section($position) {
 	width: $h2-line-height;
 	height: $h2-line-height;
-	position: absolute;
+	position: relative;
 	top: 0;
 	bottom: 0;
 	z-index: 9998;
 	outline: 0;
 	transform: translateZ(0);
-	
-  
+
+	/*
 	@media #{$medium-up} {
-		//position: fixed;
-		height: 100%;
-		//box-shadow: 0 0 3px 0 rgba(0,0,0,0.25);
+		height: 100%;		
 	}
+	*/
 
 	@if $position == left {
-		left: 0;
+		//left: 0;
+		float: left;
 	}
 	@if $position == right {    
-		right:0;
+		//right:0;
+		float: right;
   }
 }
 
@@ -363,7 +364,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		//overflow-y: scroll;
 		overflow-y: visible;
 		height: 100%;
-		padding: 0 $sidenav-width;
+		//padding: 0 $sidenav-width;
 		
 		&::-webkit-scrollbar {
 			width: 0;
@@ -383,7 +384,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 	}
 	
 	.sidenav .menu-icon {
-		width: $sidenav-width;
+		width: 100%;
 		height: 100%;
 		display: block;
 		padding: $tabbar-menu-icon-padding;
@@ -421,9 +422,11 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 			padding: 14px;
 			width: 100%;
 			height: 100%;
+			/*
 			@media #{$medium-up} {
 				transform: translateY(-50%) translateZ(0);
 			}
+			*/
 		}
 		
 		.hamburger-icon-fallback {
@@ -441,60 +444,32 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 				border-bottom: 0.2rem solid #000;
 			}
 		}
-		
-		@media #{$medium-up} {
-			//transform: translate3d(0, 50vh, 0);
+		/*
+		@media #{$medium-up} {			
 			@include translate3d(0, 50vh, 0);
 		
 			img {				
-				//transform: translate3d(0, -$h2-line-height / 2, 0);
 				@include translate3d(0, -$h2-line-height / 2, 0);
 			}
 		}
+		*/
 		
-		@media #{$small-only} {
+		//@media #{$small-only} {
 			@include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true);
 			
 			span:after {
 				@include translate3d(0, $h2-line-height / 2, 0);
 			}
-		}
+		//}
 	  }
     }
 	
-	@media #{$small-only} {
+	//@media #{$small-only} {
 		.left-off-canvas-toggle .icon-container {
-			padding: 5px 0;
+			padding: 2px 0;
 		}
-	}
+	//}
 	
-	
-
-    // MENU BUTTON
-    // This is a little bonus. You don't need it for off canvas to work. Mixins to be written in the future.
-    .tab-bar .menu-icon {
-      text-indent: $tabbar-menu-icon-text-indent;
-      width: $tabbar-height;
-      height: $tabbar-height;
-      display: block;
-      padding: $tabbar-menu-icon-padding;
-      color: $tabbar-menu-icon-color;
-      position: relative;
-      transform: translate3d(0,0,0);
-
-      // @include for the hamburger menu-icon
-      //
-      // Arguments as follows: ($width, $left, $top, $thickness, $gap, $color, $hover-color)
-      // $width - Width of hamburger icon in rem Default: $tabbar-hamburger-icon-width.
-      // $left - If false, icon will be centered horizontally || explicitly set value in rem Default: $tabbar-hamburger-icon-left= False
-      // $top - If false, icon will be centered vertically || explicitly set value in rem Default: = False
-      // $thickness - thickness of lines in hamburger icon, set value in px Default: $tapbar-hamburger-icon-thickness = 1px
-      // $gap - spacing between the lines in hamburger icon, set value in px Default: $tapbar-hamburger-icon-gap = 6px
-      // $color - icon color Default: $tabbar-menu-icon-color
-      // $hover-color - icon color when hovered Default: $tabbar-menu-icon-hover
-      // $offcanvas - Set to true
-      @include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true)
-    }
 
     .left-off-canvas-menu { @include off-canvas-menu($position: left); }
     .right-off-canvas-menu { @include off-canvas-menu($position: right); }

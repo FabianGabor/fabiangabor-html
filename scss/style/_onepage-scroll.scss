@@ -50,9 +50,11 @@ body, #onepagescroll, html {
 	padding: 0;
 	transform: translate3d(0, -50%, 0);
 	
+	/*
 	@media #{$medium-up} {
 		right: $sidenav-width + 1rem;
 	}
+	*/
 }
 .onepage-pagination li {
 	text-align: center;
