@@ -4,25 +4,40 @@ function offCanvasNav() {
 	var offCanvasWrap = document.getElementById('off-canvas-wrap');
 
 	$('.left-sidenav').on('click', function() {
-		requestAnimationFrame(function() {
+		//requestAnimationFrame(function() {
 			//$('.off-canvas-wrap').toggleClass('move-right').removeClass('move-left');
-			offCanvasWrap.classList.toggle('move-right');
-			offCanvasWrap.classList.remove('move-left');
-		});
+			if ($('html').hasClass('classlist')){
+				offCanvasWrap.classList.toggle('move-right');
+				offCanvasWrap.classList.remove('move-left');
+			}
+			else {
+				$(offCanvasWrap).toggleClass('move-right').removeClass('move-left');
+			}
+		//});
 	});
 	
 	$('.right-sidenav').on('click', function() {
-		requestAnimationFrame(function() {
-			offCanvasWrap.classList.toggle('move-left')
-			offCanvasWrap.classList.remove('move-right');
-		});
+		//requestAnimationFrame(function() {
+			if ($('html').hasClass('classlist')){
+				offCanvasWrap.classList.toggle('move-left')
+				offCanvasWrap.classList.remove('move-right');
+			}
+			else {
+				$(offCanvasWrap).toggleClass('move-left').removeClass('move-right');
+			}
+		//});
 	});
 	
 	$('.exit-off-canvas').on('click', function() {
-		requestAnimationFrame(function() {
-			offCanvasWrap.classList.remove('move-left')
-			offCanvasWrap.classList.remove('move-right');
-		});
+		//requestAnimationFrame(function() {
+			if ($('html').hasClass('classlist')){
+				offCanvasWrap.classList.remove('move-left')
+				offCanvasWrap.classList.remove('move-right');
+			}
+			else {
+				$(offCanvasWrap).removeClass('move-left').removeClass('move-right');
+			}
+		//});
 	});
 }
 

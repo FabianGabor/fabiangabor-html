@@ -426,6 +426,22 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 			}
 		}
 		
+		.hamburger-icon-fallback {
+			position: relative;
+			padding-left: 1.25rem;
+		
+			&::after {
+				content: "";
+				position: absolute;				
+				left: 0;
+				top: 100%;
+				width: 100%;
+				height: 0.85rem;
+				border-top: 0.5rem double #000;
+				border-bottom: 0.2rem solid #000;
+			}
+		}
+		
 		@media #{$medium-up} {
 			//transform: translate3d(0, 50vh, 0);
 			@include translate3d(0, 50vh, 0);
@@ -551,7 +567,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       }
     }
 
-	/*
+	
     // Older browsers
     .no-csstransforms {
       .left-off-canvas-menu { left: -($off-canvas-width); }
@@ -560,7 +576,17 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       .move-left > .inner-wrap { right: $off-canvas-width; }
       .move-right > .inner-wrap { left: $off-canvas-width; }
     }
-	*/
-
+	
+	.no-inlinesvg, .no-svg {
+		.icon-container {
+			.hamburger-icon {
+				display: none;
+			}
+			
+			.hamburger-icon-fallback {
+				display: inline !important;
+			}
+		}
+	}
   }
 }
