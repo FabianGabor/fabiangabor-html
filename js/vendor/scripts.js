@@ -1,46 +1,36 @@
 var windowHeight = $( window ).height();
 
-function offCanvasNav() {
-	var offCanvasWrap = document.getElementById('off-canvas-wrap');
+var offCanvasWrap = document.getElementById('off-canvas-wrap');
 
-	$('.left-sidenav').on('click', function() {
-		//requestAnimationFrame(function() {
-			//$('.off-canvas-wrap').toggleClass('move-right').removeClass('move-left');
-			if ($('html').hasClass('classlist')){
-				offCanvasWrap.classList.toggle('move-right');
-				offCanvasWrap.classList.remove('move-left');
-			}
-			else {
-				$(offCanvasWrap).toggleClass('move-right').removeClass('move-left');
-			}
-		//});
-	});
-	
-	$('.right-sidenav').on('click', function() {
-		//requestAnimationFrame(function() {
-			if ($('html').hasClass('classlist')){
-				offCanvasWrap.classList.toggle('move-left')
-				offCanvasWrap.classList.remove('move-right');
-			}
-			else {
-				$(offCanvasWrap).toggleClass('move-left').removeClass('move-right');
-			}
-		//});
-	});
-	
-	$('.exit-off-canvas').on('click', function() {
-		//requestAnimationFrame(function() {
-			if ($('html').hasClass('classlist')){
-				offCanvasWrap.classList.remove('move-left')
-				offCanvasWrap.classList.remove('move-right');
-			}
-			else {
-				$(offCanvasWrap).removeClass('move-left').removeClass('move-right');
-			}
-		//});
-	});
-}
+$('.left-sidenav').on('click', function leftSidenav() {
+	if ($('html').hasClass('classlist')){
+		offCanvasWrap.classList.toggle('move-right');
+		offCanvasWrap.classList.remove('move-left');
+	}
+	else {
+		$(offCanvasWrap).toggleClass('move-right').removeClass('move-left');
+	}	
+});
 
+$('.right-sidenav').on('click', function rightSidenav() {
+	if ($('html').hasClass('classlist')){
+		offCanvasWrap.classList.toggle('move-left')
+		offCanvasWrap.classList.remove('move-right');
+	}
+	else {
+		$(offCanvasWrap).toggleClass('move-left').removeClass('move-right');
+	}
+});
+
+$('.exit-off-canvas').on('click', function exitOffcanvas() {
+	if ($('html').hasClass('classlist')){
+		offCanvasWrap.classList.remove('move-left')
+		offCanvasWrap.classList.remove('move-right');
+	}
+	else {
+		$(offCanvasWrap).removeClass('move-left').removeClass('move-right');
+	}
+});
 
 
 function scrollbarWidth() {	
@@ -54,28 +44,20 @@ function scrollbarWidth() {
 }
 
 function fixHeights() {
-	//var windowHeight = $( window ).height();
-	//requestAnimationFrame(function() {
-		$( ".left-sidenav" ).height( windowHeight );
-		$( ".left-off-canvas-menu" ).height( windowHeight );	
-		$( ".single .placeholder" ).height( windowHeight );
-	//});
+	$( ".left-sidenav" ).height( windowHeight );
+	$( ".left-off-canvas-menu" ).height( windowHeight );
+	$( ".single .placeholder" ).height( windowHeight );
 	
-	//requestAnimationFrame(function() {
-		document.getElementById('leftmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
-		document.getElementById('rightmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
-	//});
+	document.getElementById('leftmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
+	document.getElementById('rightmenuIcon').style.transform = "translate3d(0, " + windowHeight/2 + "px, 0)";
 }
 
 function fixScrollbar() {
-	//requestAnimationFrame(function() {
-		$('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
-		$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
-	//});
+	$('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
+	$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
 }
 
 function cover(windowHeight) {
-	//var windowHeight = $( window ).height();
 	//$("body.single-format-image #cover").height( windowHeight );	
 	var video = document.getElementById('video');
 	$("#video").css('transform', 'translate3d(0, ' + (windowHeight - $("#video").outerHeight())/2 + 'px, 0)' );
@@ -107,16 +89,16 @@ $('a[href^="#"]').on('click', function(event) {
 jQuery( window ).load(function() {
 	//$(document).foundation();	
 	//requestAnimationFrame(function() {
-		offCanvasNav();
+		//offCanvasNav();
 	//});
 });
 
 jQuery( document ).ready(function() {
 	if ( $("#content").height() > windowHeight ) {
 	
-		//requestAnimationFrame(function() {
-			fixScrollbar();
-		//});
+	//requestAnimationFrame(function() {
+		fixScrollbar();
+	//});
 	
 	}
 	//fixHeights();

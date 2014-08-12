@@ -1,4 +1,4 @@
-$onepage-slide: "transform 640ms ease-in-out" !default;
+$onepage-slide: "transform 640ms ease-out" !default;
 
 .disable-hover,
 .disable-hover * 
@@ -50,11 +50,10 @@ body, #onepagescroll, html {
 	padding: 0;
 	transform: translate3d(0, -50%, 0);
 	
-	/*
 	@media #{$medium-up} {
 		right: $sidenav-width + 1rem;
 	}
-	*/
+	
 }
 .onepage-pagination li {
 	text-align: center;

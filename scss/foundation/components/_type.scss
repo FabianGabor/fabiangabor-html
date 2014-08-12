@@ -38,6 +38,20 @@ $base-font-size: 1rem;
 $base-line-height: 1.625rem;
 $measure: 760px;
 
+$huge-font-size: 6.875rem;
+$huge-line: 1.625rem;
+$huge-lines: 5;
+$huge-line-height: $huge-line * $huge-lines;
+$huge-margin-top: 2 * $huge-line;
+$huge-margin-bottom: 1 * $huge-line;
+
+$large-font-size: 4.25rem;
+$large-line: 1.625rem;
+$large-lines: 3;
+$large-line-height: $large-line * $large-lines;
+$large-margin-top: 2 * $large-line;
+$large-margin-bottom: 1 * $large-line;
+
 $h1-font-size: 2.625rem;
 $h1-line: 1.625rem;
 $h1-lines: 3;
@@ -321,6 +335,20 @@ $align-class-breakpoints:
         line-height: 0;
       }
     }
+	
+	.huge { 
+		font-size: $huge-font-size; 
+		line-height: $huge-line-height;
+		margin-top: $huge-margin-top / 2;
+		margin-bottom: $huge-margin-bottom / 2;
+	}
+	
+	.large { 
+		font-size: $large-font-size; 
+		line-height: $large-line-height;
+		margin-top: $large-margin-top / 2;
+		margin-bottom: $large-margin-bottom / 2;
+	}
 	
 	h1, .h1 { 
 		font-size: $h1-font-size; 

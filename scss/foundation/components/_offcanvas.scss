@@ -143,126 +143,55 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 // OFF CANVAS WRAP
 // Wrap visible content and prevent scroll bars
 @mixin off-canvas-wrap {
-  @include kill-flicker;
-  @include wrap-base;
-  overflow: hidden;
-  position: relative;
-  //z-index: 2;
-  /*
-  &.move-right,
-  &.move-left { -webkit-overflow-scrolling: touch; }
-  */
+	@include kill-flicker;
+	@include wrap-base;
+	overflow: hidden;
+	position: relative;
+	//z-index: 2;
+	/*
+	&.move-right,
+	&.move-left { -webkit-overflow-scrolling: touch; }
+	*/
 }
 
 // INNER WRAP
 // Main content area that moves to reveal the off-canvas nav
 @mixin inner-wrap {
-  @include kill-flicker;
-  @include wrap-base;
-  @include clearfix;
-  //background: $body-bg;
-  -webkit-transition: -webkit-#{$menu-slide};
-  -moz-transition: -moz-#{$menu-slide};
-  -ms-transition: -ms-#{$menu-slide};
-  -o-transition: -o-#{$menu-slide};
-  transition: #{$menu-slide};
-  will-change: transform;
+	@include kill-flicker;
+	@include wrap-base;
+	@include clearfix;
+	//background: $body-bg;
+	-webkit-transition: -webkit-#{$menu-slide};
+	   -moz-transition: -moz-#{$menu-slide};
+	    -ms-transition: -ms-#{$menu-slide};
+	     -o-transition: -o-#{$menu-slide};
+	        transition: #{$menu-slide};
+	will-change: transform;
 }
-
-// TAB BAR
-// This is the tab bar base
-@mixin tab-bar-base {
-  @include kill-flicker;
-
-  // base styles
-  background: $tabbar-bg;
-  color: $tabbar-color;
-  height: $tabbar-height;
-  line-height: $tabbar-height;
-
-  // make sure it's below the .exit-offcanvas link
-  position: relative;
-  // z-index: 999;
-
-  // Typography
-  h1,h2,h3,h4,h5,h6 {
-    color: $tabbar-header-color;
-    font-weight: $tabbar-header-weight;
-    line-height: $tabbar-header-line-height;
-    margin: $tabbar-header-margin;
-  }
-  h1,h2,h3,h4 { font-size: $h5-font-size; }
-}
-
-// SMALL SECTIONS
-// These are small sections on the left and right that contain the off-canvas toggle buttons;
-@mixin tabbar-small-section($position) {
-  width: $tabbar-height;
-  height: $tabbar-height;
-  position: absolute;
-  top: 0;
-  @if $position == left {
-    border-right: $tabbar-left-section-border;
-    // box-shadow: 1px 0 0 scale-color($tabbar-bg, $lightness: 13%);
-    left: 0;
-  }
-  @if $position == right {
-    border-left: $tabbar-right-section-border;
-    // box-shadow: -1px 0 0 scale-color($tabbar-bg, $lightness: -50%);
-    right:0;
-  }
-}
-
-@mixin tab-bar-section {
-  padding: $tabbar-middle-padding;
-  position: absolute;
-  text-align: center;
-  height: $tabbar-height;
-  top: 0;
-  @media #{$medium-up} { text-align: left; }
-
-  // still need to make these non-presentational
-  &.left {
-    left: 0;
-    right: $tabbar-height;
-  }
-  &.right {
-    left: $tabbar-height;
-    right: 0;
-  }
-  &.middle {
-    left: $tabbar-height;
-    right: $tabbar-height;
-  }
-}
-
 
 // SIDENAV
-
 @mixin sidenav-section($position) {
 	width: $h2-line-height;
 	height: $h2-line-height;
-	position: relative;
+	position: absolute;
 	top: 0;
 	bottom: 0;
 	z-index: 9998;
 	outline: 0;
 	transform: translateZ(0);
-
-	/*
+	
 	@media #{$medium-up} {
 		height: 100%;		
 	}
-	*/
 
 	@if $position == left {
-		//left: 0;
+		left: 0;
 		float: left;
 	}
 	@if $position == right {    
-		//right:0;
+		right:0;
 		float: right;
-  }
+	}
 }
 
 
@@ -270,51 +199,50 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 // OFF CANVAS LIST
 // This is the list of links in the off-canvas menu
 @mixin off-canvas-list ($position: right) {
-  list-style-type: none;
-  padding:0;
-  margin:0;
+	list-style-type: none;
+	padding:0;
+	margin:0;
 
-  @if $position == right {  
-	  li {
-		label {
-		  display: block;
-		  padding: $off-canvas-label-padding;
-		  color: $off-canvas-label-color;
-		  text-transform: $off-canvas-label-text-transform;
-		  font-size: $off-canvas-label-font-size;
-		  font-weight: $off-canvas-label-font-weight;
-		  background: $off-canvas-label-bg;
-		  border-top: $off-canvas-label-border-top;
-		  border-bottom: $off-canvas-label-border-bottom;
-		  margin: $off-canvas-label-margin;
-		}
-		a {
-		  display: block;
-		  padding: $off-canvas-link-padding;
-		  color: $off-canvas-link-color;
-		  border-bottom: $off-canvas-link-border-bottom;
-		  &:hover { background: scale-color($tabbar-bg, $lightness: -30%); }
-		  transition: background 300ms ease;
-		}
-	  }  
-  }
+	@if $position == right {  
+		li {
+			label {
+				display: block;
+				padding: $off-canvas-label-padding;
+				color: $off-canvas-label-color;
+				text-transform: $off-canvas-label-text-transform;
+				font-size: $off-canvas-label-font-size;
+				font-weight: $off-canvas-label-font-weight;
+				background: $off-canvas-label-bg;
+				border-top: $off-canvas-label-border-top;
+				border-bottom: $off-canvas-label-border-bottom;
+				margin: $off-canvas-label-margin;
+			}
+			a {
+				display: block;
+				padding: $off-canvas-link-padding;
+				color: $off-canvas-link-color;
+				border-bottom: $off-canvas-link-border-bottom;
+				&:hover { background: scale-color($tabbar-bg, $lightness: -30%); }
+				transition: background 300ms ease;
+			}
+		}  
+	}
   
-  @if $position == left {
+	@if $position == left {
 		li {
 			a {
-			  display: block;
-			  text-transform: uppercase;
-			  padding: 0 $off-canvas-link-padding * 8;
-			  color: $body-font-color;
-			  border-bottom: none;
-			  &:hover { color: $primary-color; background: none; }
-			  transition: color 300ms ease;
-			  line-height: $base-line-height * 2;
-			  font-weight: $font-weight-light;
+				display: block;
+				text-transform: uppercase;
+				padding: 0 $off-canvas-link-padding * 8;
+				color: $body-font-color;
+				border-bottom: none;
+				&:hover { background: $primary-color; color: $off-canvas-bg; }
+				transition: background 300ms ease, color 300ms ease;
+				line-height: $base-line-height * 2;
+				font-weight: $font-weight-light;
 			}
 		}
 	}
-
 }
 
 // BACK LINK
@@ -347,7 +275,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 // DEFAULT CLASSES
 //
 @include exports("offcanvas") {
-  @if $include-html-off-canvas-classes {
+	@if $include-html-off-canvas-classes {
 
     .off-canvas-wrap { @include off-canvas-wrap; }
 	.off-canvas-menu {				
@@ -368,6 +296,13 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		
 		&::-webkit-scrollbar {
 			width: 0;
+		}
+		
+		padding: $h3-font-size+$h3-margin-top;
+		
+		@media #{$small-only} {
+			height: 100%;
+			padding: $h3-font-size+$h3-margin-top 0 0;
 		}
 	}
 
@@ -408,10 +343,18 @@ $menu-slide: "transform 512ms ease-in-out" !default;
       // $offcanvas - Set to true
       @include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true);
 	  
-	  .icon-container {	  
+	.icon-container {	  
 		position: absolute;
 		height: $h2-line-height;
 		width: $h2-line-height;
+		
+		@media #{$medium-up} {			
+			@include translate3d(0, 50vh, 0);
+		
+			img {				
+				@include translate3d(0, -50%, 0);
+			}
+		}
 		
 		img {
 			max-height: 100%;
@@ -422,11 +365,11 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 			padding: 14px;
 			width: 100%;
 			height: 100%;
-			/*
+			
 			@media #{$medium-up} {
 				transform: translateY(-50%) translateZ(0);
 			}
-			*/
+			
 		}
 		
 		.hamburger-icon-fallback {
@@ -444,16 +387,8 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 				border-bottom: 0.2rem solid #000;
 			}
 		}
-		/*
-		@media #{$medium-up} {			
-			@include translate3d(0, 50vh, 0);
 		
-			img {				
-				@include translate3d(0, -$h2-line-height / 2, 0);
-			}
-		}
-		*/
-		
+	
 		//@media #{$small-only} {
 			@include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tapbar-hamburger-icon-thickness, $tapbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true);
 			

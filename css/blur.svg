@@ -4,6 +4,6 @@
 	</filter>
   
 	<filter id="blur">
-		<feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+		<feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
 	</filter>
 </svg>
