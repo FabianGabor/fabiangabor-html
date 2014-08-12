@@ -293,6 +293,7 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 		overflow-y: visible;
 		height: 100%;
 		//padding: 0 $sidenav-width;
+		//box-shadow: 0 0 $base-line-height $sidenav-width hsl(0, 0%, 95%) inset;
 		
 		&::-webkit-scrollbar {
 			width: 0;

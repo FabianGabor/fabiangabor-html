@@ -42,16 +42,16 @@ $crumb-slash: "/" !default;
 // We use this mixin to create a container around our breadcrumbs
 @mixin crumb-container {
   display: block;
-  padding: $crumb-padding;
+  //padding: $crumb-padding;
   overflow: hidden;
   margin-#{$default-float}: 0;
   list-style: none;
-  border-style: $crumb-border-style;
-  border-width: $crumb-border-size;
+  //border-style: $crumb-border-style;
+  //border-width: $crumb-border-size;
 
   // We control which background color and border come through.
-  background-color: $crumb-bg;
-  border-color: $crumb-border-color;
+  //background-color: $crumb-bg;
+  //border-color: $crumb-border-color;
 }
 
 // We use this mixin to create breadcrumb styles from list items.
@@ -60,8 +60,10 @@ $crumb-slash: "/" !default;
   // A normal state will make the links look and act like clickable breadcrumbs.
   margin: 0;
   float: $default-float;
+  /*
   font-size: $crumb-font-size;
   line-height: $crumb-font-size;
+  */
   text-transform: $crumb-font-transform;
   color: $crumb-font-color;
 
@@ -117,8 +119,9 @@ $crumb-slash: "/" !default;
   @if $include-html-nav-classes {
     .breadcrumbs {
       @include crumb-container;
-      @include radius($crumb-radius);
+      //@include radius($crumb-radius);
 
+	  
       &>* {
         @include crumbs;
       }
