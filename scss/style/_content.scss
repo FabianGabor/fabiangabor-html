@@ -22,7 +22,7 @@
 	100% { opacity: 0.6; }
 }
 
-.frontpage {
+.home {
 	.icon-container {
 		position: absolute;
 		left: 50%;
@@ -74,7 +74,7 @@
 }
 
 .no-touch {
-	.frontpage {			
+	.home {			
 		.placeholder-container {
 			.link-title {
 				font-size: $huge-font-size;
