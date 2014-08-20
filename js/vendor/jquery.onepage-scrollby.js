@@ -412,6 +412,7 @@ jQuery.extend( jQuery.easing,
         quietPeriod = 250,
         paginationList = "";
 		scrollDownAmount = 0;
+		scrollDownAmountWhenRefreshed = 0;
 
 
 	$.fn.scrollBy = function (y) {
@@ -425,16 +426,19 @@ jQuery.extend( jQuery.easing,
     
 	$.fn.moveDown = function() {
 		scrollDownAmount = scrollDownAmount + 1;
+		
+		console.log( 'scrollDownAmount             : ' + scrollDownAmount );
+		console.log( 'scrollDownAmountWhenRefreshed: ' + scrollDownAmountWhenRefreshed );
+		
 		var el = $(this);
 		el.stop().scrollBy(el.height()); //down
 
-		console.log( (el.scrollTop()+el.height())%5 );
-		
-		if ( 
-		( /*((el.scrollTop()+el.height())%5 >= 4) || */((el.scrollTop()+el.height())%5 == 0))
-		& el.scrollTop() != 0) {
-			window.infiniteScroll.scroller.refresh();
-			bindAnchor();
+		if ( scrollDownAmount % 5 == 4	& scrollDownAmount != 0) {
+			if ( scrollDownAmountWhenRefreshed < scrollDownAmount ) {
+				window.infiniteScroll.scroller.refresh();
+				bindAnchor();
+				scrollDownAmountWhenRefreshed = scrollDownAmount;
+			}
 		}
 		
 	}
