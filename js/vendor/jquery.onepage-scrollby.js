@@ -23,17 +23,7 @@ jQuery.extend( jQuery.easing,
 	if (t==d) return b+c;
 	if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
 	return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
-	},
-	easeInCirc: function (x, t, b, c, d) {
-	return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
-	},
-	easeOutCirc: function (x, t, b, c, d) {
-	return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
-	},
-	easeInOutCirc: function (x, t, b, c, d) {
-	if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
-	return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
-	},
+	}
 });
 
 
@@ -419,57 +409,41 @@ jQuery.extend( jQuery.easing,
         topPos = 0,
         leftPos = 0,
         lastAnimation = 0,
-        quietPeriod = 50,
+        quietPeriod = 250,
         paginationList = "";
+		scrollDownAmount = 0;
 
 
-    $.fn.scrollBy = function (x, y) {
-      return this.animate({
-        scrollLeft: '+=' + x,
-        scrollTop: '+=' + y
-      }, {
-        duration: 1000,
-        easing: 'easeInOutExpo'
-      });
-  };
+	$.fn.scrollBy = function (y) {
+		return this.animate({        
+			scrollTop: '+=' + y
+		}, {
+			duration: 1000,
+			easing: 'easeInOutExpo'
+		});
+	};
     
 	$.fn.moveDown = function() {
+		scrollDownAmount = scrollDownAmount + 1;
 		var el = $(this);
-		el.stop().scrollBy(0, el.height()); //down
+		el.stop().scrollBy(el.height()); //down
 
-		//console.log( 'moveDown: ' + (el.scrollTop()+el.height()) );
+		console.log( (el.scrollTop()+el.height())%5 );
 		
-		if ( (el.scrollTop()+el.height())%5 == 0 & el.scrollTop() != 0) {
+		if ( 
+		( /*((el.scrollTop()+el.height())%5 >= 4) || */((el.scrollTop()+el.height())%5 == 0))
+		& el.scrollTop() != 0) {
 			window.infiniteScroll.scroller.refresh();
-			//window.infiniteScroll.scroller.updateURL(4);
-			
+			bindAnchor();
 		}
 		
 	}
 
 	$.fn.moveUp = function() {
+		if ( scrollDownAmount > 0 )
+			scrollDownAmount = scrollDownAmount - 1;
 		var el = $(this);
-		el.stop().scrollBy(0, -el.height()); //up
-
-		/*
-		console.log( 'moveUp: ' + el.scrollTop()+el.height() );
-		if ( (el.scrollTop()+el.height())%5 == 0 & el.scrollTop() != 0) {
-
-			var url = purl(window.location);
-			var pagenr = url.segment(-1);
-			
-			if ($.isNumeric(pagenr)) {
-				prevpage = parseInt(pagenr) - 1;
-			}
-			else {
-				nextpage = 2;
-			}
-
-			//window.infiniteScroll.scroller.refresh();
-			window.infiniteScroll.scroller.updateURL(prevpage);
-			window.infiniteScroll.scroller.refresh();
-		}
-		*/
+		el.stop().scrollBy(-el.height()); //up
 	}
 
 
@@ -488,6 +462,7 @@ jQuery.extend( jQuery.easing,
           el.moveUp()
         }
         lastAnimation = timeNow;
+		//console.log( scrollDownAmount );
     }
 
     el.swipeEvents().bind("swipeDown",  function(event){
@@ -504,6 +479,24 @@ jQuery.extend( jQuery.easing,
       var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
       if(!$("body").hasClass("disabled-onepage-scroll")) init_scroll(event, delta);
     });
+	
+	
+	$(window).on('resize', function() {
+		el.stop().scrollTop(el.height() * scrollDownAmount );
+	});
+	
+	
+	/*
+	var resizeId;
+	$( window ).resize(function() {	
+		clearTimeout(resizeId);
+		resizeId = setTimeout(doneResizing, 16);
+	});
+
+	function doneResizing(){
+		el.stop().scrollTop(el.height() * scrollDownAmount );
+	}
+	*/
 
     return false;
   }

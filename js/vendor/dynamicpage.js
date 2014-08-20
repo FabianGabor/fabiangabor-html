@@ -1,17 +1,15 @@
-$(function() {
-	
-    //if(Modernizr.history){
 
     var newHash      		= "",
-        $articleContainer 	= $("#articleContainer"),
-        $pageWrap    		= $("#page-wrap");
+        $articleContainer 	= $("#articleContainer");
     
-	$('#onepagescroll a.entry-readmore').on('click', function() {
-        _link = $(this).attr("href");
-        history.pushState(null, null, _link);		
-        loadContent(_link);		
-        return false;
-    });
+	function bindAnchor() {
+		$('#onepagescroll a.entry-readmore').on('click', function() {
+			_link = $(this).attr("href");
+			history.pushState(null, null, _link);		
+			loadContent(_link);		
+			return false;
+		});
+	};
 
 	$.getScript = function(url, callback){
 		$.ajax({
@@ -30,11 +28,13 @@ $(function() {
 		$articleContainer.load(href + " #main", function() {
 			$("#content").addClass("show-article");
 			
-			$('#video').lazyYT();
-			cover();
+			if ( document.getElementById('video') != null ) {
+				$('#video').lazyYT();
+				cover();
+			}
 		});
     }
-    
+	
 	
     $(window).bind('popstate', function(){
 	/*
@@ -44,7 +44,5 @@ $(function() {
 		$("#content").removeClass("show-article");
     });
 
-//} // otherwise, history is not supported, so nothing fancy here.
 
-    
-});
+bindAnchor();

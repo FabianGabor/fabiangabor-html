@@ -136,10 +136,11 @@ $( window ).resize(function() {
 
 function doneResizing(){
 	var windowHeight = $( window ).height();
+	fixScrollbar();
 	//if ( $("#content").height() > windowHeight ) {
 	/*
 		requestAnimationFrame(function() {
-			fixScrollbar();
+			
 		});
 	*/
 	//}
