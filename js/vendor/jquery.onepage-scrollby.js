@@ -427,9 +427,6 @@ jQuery.extend( jQuery.easing,
 	$.fn.moveDown = function() {
 		scrollDownAmount = scrollDownAmount + 1;
 		
-		console.log( 'scrollDownAmount             : ' + scrollDownAmount );
-		console.log( 'scrollDownAmountWhenRefreshed: ' + scrollDownAmountWhenRefreshed );
-		
 		var el = $(this);
 		el.stop().scrollBy(el.height()); //down
 
