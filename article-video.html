@@ -15,6 +15,15 @@
 <div id="off-canvas-wrap" class="off-canvas-wrap" data-offcanvas> 
 	<div class="inner-wrap"> 
 		
+		<div class="header">
+			<ul class="header-title breadcrumbs">
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Esemény</a></li>
+				<li class="unavailable"><a href="#">Gene Splicing</a></li>
+				<li class="current"><a href="#">Cloning</a></li>
+			</ul>
+		</div>
+		
 		<nav class="sidenav left-sidenav">
 			<a class="left-off-canvas-toggle menu-icon">
 				<div class="icon-container">
@@ -51,24 +60,29 @@
 			</ul> 
 		</aside>
 		
-		<section class="main-section"> <!-- content goes here -->
-			<div class="header hide-for-medium-up"></div>
-			
+		<section class="main-section" id="main"> <!-- content goes here -->
 			<div class="row collapse">			
 				<div id="cover" class="large-12 columns placeholder-container media">			
-					<span class="blurbg blur" style="background-image:url(https://i.ytimg.com/vi/BYi8M96zyLI/hqdefault.jpg)">
+					<span class="blurbg blur" style="background-image:url(http://i.ytimg.com/vi/BYi8M96zyLI/hqdefault.jpg)">
 					</span>
 					
 					<div class="row">
 						<div class="large-8 columns large-centered">
-							<div id="video" class="flex-video widescreen">
+							<!--
+							<div id="video" class="flex-video widescreen">								
 								<iframe width="560" height="315" src="//www.youtube.com/embed/BYi8M96zyLI" frameborder="0" allowfullscreen></iframe>
+								
+								
+								<img src="http://i.ytimg.com/vi/BYi8M96zyLI/hqdefault.jpg" data-video="//www.youtube.com/embed/BYi8M96zyLI?autoplay=1">
+								
 							</div>
+							-->								
+							<div id="video" class="js-lazyYT" data-youtube-id="BYi8M96zyLI" data-ratio="16:9"></div>
 						</div>
 					</div>
 				</div>
 
-				<div id="content" class="large-12 medium-12 small-12 columns columns post-content">
+				<div class="large-12 medium-12 small-12 columns columns post-content">
 					<div itemprop="articleBody" class="entry-content row">
 						<div class="large-4 medium-6 small-12 large-centered medium-centered columns">
 							<h2>Lorem ipsum dolor sit amet</h2>
@@ -101,6 +115,10 @@
 				</div>		
 			</div>
 		</section> 
+		
+		<div class="footer hide-for-small-only">	
+			<h1 class="footer-title h3">Footer</h1>
+		</div>
 		
 		<a class="exit-off-canvas"></a> 
 	</div> 

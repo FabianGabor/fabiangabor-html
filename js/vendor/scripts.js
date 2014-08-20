@@ -57,10 +57,11 @@ function fixScrollbar() {
 	$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
 }
 
-function cover(windowHeight) {
-	//$("body.single-format-image #cover").height( windowHeight );	
+function cover() {
+	//$("body.single-format-image #cover").height( windowHeight );
+	var cover = document.getElementById('cover');
 	var video = document.getElementById('video');
-	$("#video").css('transform', 'translate3d(0, ' + (windowHeight - $("#video").outerHeight())/2 + 'px, 0)' );
+	$("#video").css('transform', 'translate3d(0, ' + ($(cover).outerHeight() - $(video).outerHeight())/2 + 'px, 0)' );
 }
 
 /*
@@ -94,16 +95,16 @@ jQuery( window ).load(function() {
 });
 
 jQuery( document ).ready(function() {
-	if ( $("#content").height() > windowHeight ) {
+	//if ( $("#content").height() > windowHeight ) {
 	
-	//requestAnimationFrame(function() {
-		fixScrollbar();
-	//});
+		//requestAnimationFrame(function() {
+			fixScrollbar();
+		//});
 	
-	}
+	//}
 	//fixHeights();
 	//requestAnimationFrame(function() {
-		cover(windowHeight);
+		cover();
 	//});
 });
 
@@ -111,11 +112,11 @@ var onepagescroll = document.getElementById('onepagescroll');
 if ( onepagescroll != null ) {
 	$("#onepagescroll").onepage_scroll({
 		sectionContainer: ".post",     // sectionContainer accepts any kind of selector in case you don't want to use section
-		easing: "ease-in-out",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", 
+		easing: "cubic-bezier(1.000, 0.000, 0.000, 1.000)",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", 
 										// "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
 		animationTime: 640,             // AnimationTime let you define how long each section takes to animate
-		pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-		updateURL: true,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+		pagination: false,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+		updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
 		//beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
 		//afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
 		loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
@@ -168,3 +169,103 @@ window.addEventListener('scroll', function() {
 	},500);
 }, false);
 */
+/*
+jQuery(".left-off-canvas-toggle").click(function(){
+    window.infiniteScroll.scroller.refresh();
+});
+*/
+
+
+/*
+;(function ($) {
+  'use strict';
+  var content  = $('#main').smoothState({
+        // onStart runs as soon as link has been activated
+        onStart : {
+		
+          
+          // Set the duration of our animation
+          duration: 250,
+          
+          // Alterations to the page
+          render: function () {
+
+            // Quickly toggles a class and restarts css animations
+            content.toggleAnimationClass('is-exiting');
+			
+			$('body').toggleClass('archive').toggleClass('single');
+			
+          }
+        }
+      }).data('smoothState'); // makes public methods available
+})(jQuery);
+*/
+
+
+
+
+
+/*! LazyYT (lazy load Youtube videos plugin) - v0.3.4 - 2014-06-30
+* Usage: <div class="lazyYT" data-youtube-id="laknj093n" ratio="16:9" data-parameters="rel=0">loading...</div>
+* Copyright (c) 2014 Tyler Pearson; Licensed MIT */
+/*
+ * https://github.com/tylerpearson/lazyYT
+ */
+
+
+;(function ($) {
+    'use strict';
+
+    function setUp($el) {
+        var width = $el.data('width'),
+            height = $el.data('height'),
+            ratio = $el.data('ratio'),
+            id = $el.data('youtube-id'),
+            aspectRatio = ['16', '9'],
+            paddingTop = 0,
+            youtubeParameters = $el.data('parameters') || '';
+
+        if (typeof width === 'undefined' || typeof height === 'undefined') {
+          height = 0;
+          width = '100%';
+          aspectRatio = (ratio.split(":")[1] / ratio.split(":")[0]) * 100;
+          paddingTop = aspectRatio + '%';
+        }
+
+        $el.css({
+            'position': 'relative',
+            'height': height,
+            'width': width,
+            'padding-top': paddingTop,
+            'background': 'url(http://img.youtube.com/vi/' + id + '/hqdefault.jpg) center center no-repeat',
+            'cursor': 'pointer',
+            'background-size': 'cover'
+        })
+            .html('<p id="lazyYT-title-' + id + '" class="lazyYT-title"></p><div class="lazyYT-button"></div>')
+            .addClass('lazyYT-image-loaded');
+
+        $.getJSON('https://gdata.youtube.com/feeds/api/videos/' + id + '?v=2&alt=json', function (data) {
+            $('#lazyYT-title-' + id).text(data.entry.title.$t);
+        });
+
+        $el.on('click', function (e) {
+            e.preventDefault();
+            if (!$el.hasClass('lazyYT-video-loaded') && $el.hasClass('lazyYT-image-loaded')) {
+                $el.html('<iframe width="' + width + '" height="' + height + '" src="//www.youtube.com/embed/' + id + '?autoplay=1&' + youtubeParameters + '" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>')
+                    .removeClass('lazyYT-image-loaded')
+                    .addClass('lazyYT-video-loaded');
+            }
+        });
+
+    }
+
+    $.fn.lazyYT = function () {
+        return this.each(function () {
+            var $el = $(this).css('cursor', 'pointer');
+            setUp($el);
+        });
+    };
+
+}(jQuery));
+
+$('.js-lazyYT').lazyYT();

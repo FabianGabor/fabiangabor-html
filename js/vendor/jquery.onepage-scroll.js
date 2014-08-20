@@ -52,7 +52,6 @@
 			$this.bind('touchend', touchend);
           }
 		  //event.preventDefault();
-		  console.log('touchstart');
         }
 
         function touchmove(event) {
@@ -81,13 +80,11 @@
             }
           }
 		  event.preventDefault();
-		  console.log('touchmove');
         }
 		
 		function touchend(event) {
 			$this.unbind('touchmove', touchmove);
 			//event.preventDefault(); // prevents clicking article link...
-			 console.log('touchend');
 		}
 
       });
@@ -103,7 +100,7 @@
         topPos = 0,
         leftPos = 0,
         lastAnimation = 0,
-        quietPeriod = 100,
+        quietPeriod = 50,
         paginationList = "";
 
     $.fn.transformPage = function(settings, pos, index) {
@@ -124,7 +121,6 @@
       $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
         if (typeof settings.afterMove == 'function') settings.afterMove(index);
       });
-	   console.log('transformPage');
     }
 
     $.fn.moveDown = function() {
@@ -132,6 +128,14 @@
       index = $(settings.sectionContainer +".active").data("index");
       current = $(settings.sectionContainer + "[data-index='" + index + "']");
       next = $(settings.sectionContainer + "[data-index='" + (index + 1) + "']");
+	  
+	  /*
+	  next2 = $(settings.sectionContainer + "[data-index='" + (index + 2) + "']");
+	  if(next2.length < 1) {
+	   window.infiniteScroll.scroller.refresh();
+	  }
+	  */
+	  
       if(next.length < 1) {
         if (settings.loop == true) {
           pos = 0;
@@ -159,7 +163,6 @@
         history.pushState( {}, document.title, href );
       }
       el.transformPage(settings, pos, next.data("index"));
-	  console.log('moveDown');
     }
 
     $.fn.moveUp = function() {
@@ -194,7 +197,6 @@
         history.pushState( {}, document.title, href );
       }
       el.transformPage(settings, pos, next.data("index"));
-	  console.log('moveUp');
     }
 
     $.fn.moveTo = function(page_index) {
@@ -217,7 +219,6 @@
         }
         el.transformPage(settings, pos, page_index);
       }
-	  console.log('moveTo');
     }
 
     function responsive() {
@@ -284,7 +285,6 @@
           el.moveUp()
         }
         lastAnimation = timeNow;
-		console.log('init_scroll');
     }
 
     // Prepare everything before binding wheel scroll
@@ -298,7 +298,7 @@
       }).addClass("section").attr("data-index", i+1);
 	*/
 	   //$(this).addClass("section").attr("data-index", i+1);
-	   $(this).attr("data-index", i+1);
+	   //$(this).attr("data-index", i+1);
       
       /*
       $(this).css({
@@ -442,6 +442,13 @@
 		$('#onepagescroll').removeClass('hover-active');
 	}
 	*/
+	
+	var onepagescroll = document.getElementById('onepagescroll');
+	if ( Modernizr.classlist == true )
+		onepagescroll.classList.add('activated');
+	else
+		onepagescroll.addClass('activated');
+	
 
 }(window.jQuery);
 

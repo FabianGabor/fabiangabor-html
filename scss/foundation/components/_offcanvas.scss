@@ -91,19 +91,19 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 
 // Remove transition flicker on phones
 @mixin kill-flicker {
-  @include translate3d(0,0,0);
-  
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+	@include translate3d(0,0,0);
+
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 // Basic properties for the content wraps
 @mixin wrap-base {
-  position: absolute;
-  width: 100%;
-  width: 100vw;
-  height: 100%;
-  height: 100vh;
+	position: absolute;
+	width: 100%;
+	width: 100vw;
+	height: 100%;
+	height: 100vh;
 }
 
 // basic styles for off-canvas menu container
@@ -240,6 +240,12 @@ $menu-slide: "transform 512ms ease-in-out" !default;
 				transition: background 300ms ease, color 300ms ease;
 				line-height: $base-line-height * 2;
 				font-weight: $font-weight-light;
+			}
+		}
+		.current-menu-item {
+			a {
+				color: $primary-color;
+				font-weight: 400;
 			}
 		}
 	}
