@@ -127,7 +127,7 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%) !def
 $hr-border-width: 1px !default;
 $hr-border-style: solid !default;
 $hr-border-color: #ddd !default;
-$hr-margin: rem-calc(20) !default;
+$hr-margin: rem-calc(26) !default;
 
 // We use these to style lists
 $list-font-family: $paragraph-font-family !default;
@@ -322,7 +322,7 @@ $align-class-breakpoints:
       font-family: $header-font-family;
       font-weight: $header-font-weight;
       font-style: $header-font-style;
-      color: $header-font-color;
+      //color: $header-font-color;
       text-rendering: $header-text-rendering;
 	  /*
       margin-top: $header-top-margin;

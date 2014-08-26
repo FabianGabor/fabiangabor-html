@@ -152,59 +152,6 @@ function doneResizing(){
 
 
 
-/*
- * http://www.thecssninja.com/javascript/pointer-events-60fps
- */
-/*
-var body = document.body,
-    timer;
-
-window.addEventListener('scroll', function() {
-	clearTimeout(timer);
-	if(!body.classList.contains('disable-hover')) {
-		body.classList.add('disable-hover')
-	}
-
-	timer = setTimeout(function(){
-		body.classList.remove('disable-hover')
-	},500);
-}, false);
-*/
-/*
-jQuery(".left-off-canvas-toggle").click(function(){
-    window.infiniteScroll.scroller.refresh();
-});
-*/
-
-
-/*
-;(function ($) {
-  'use strict';
-  var content  = $('#main').smoothState({
-        // onStart runs as soon as link has been activated
-        onStart : {
-		
-          
-          // Set the duration of our animation
-          duration: 250,
-          
-          // Alterations to the page
-          render: function () {
-
-            // Quickly toggles a class and restarts css animations
-            content.toggleAnimationClass('is-exiting');
-			
-			$('body').toggleClass('archive').toggleClass('single');
-			
-          }
-        }
-      }).data('smoothState'); // makes public methods available
-})(jQuery);
-*/
-
-
-
-
 
 /*! LazyYT (lazy load Youtube videos plugin) - v0.3.4 - 2014-06-30
 * Usage: <div class="lazyYT" data-youtube-id="laknj093n" ratio="16:9" data-parameters="rel=0">loading...</div>

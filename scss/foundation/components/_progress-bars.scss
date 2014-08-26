@@ -10,8 +10,8 @@
 $include-html-media-classes: $include-html-classes !default;
 
 // We use this to set the progress bar height
-$progress-bar-height: rem-calc(25) !default;
-$progress-bar-color: #f6f6f6 !default;
+$progress-bar-height: rem-calc(3) !default;
+$progress-bar-color: #2e2f33 !default;
 
 // We use these to control the border styles
 $progress-bar-border-color: scale-color(#fff, $lightness: 20%) !default;
@@ -21,7 +21,7 @@ $progress-bar-border-radius: $global-radius !default;
 
 // We use these to control the margin & padding
 $progress-bar-pad: rem-calc(2) !default;
-$progress-bar-margin-bottom: rem-calc(10) !default;
+$progress-bar-margin-bottom: rem-calc(26) !default;
 
 // We use these to set the meter colors
 $progress-meter-color: $primary-color !default;
@@ -33,11 +33,12 @@ $progress-meter-alert-color: $alert-color !default;
 //
 // We use this to set up the progress bar container
 @mixin progress-container {
-  background-color: $progress-bar-color;
-  height: $progress-bar-height;
-  border: $progress-bar-border-size $progress-bar-border-style $progress-bar-border-color;
-  padding: $progress-bar-pad;
-  margin-bottom: $progress-bar-margin-bottom;
+	background-color: $progress-bar-color;
+	height: $progress-bar-height;
+	//border: $progress-bar-border-size $progress-bar-border-style $progress-bar-border-color;
+	//padding: $progress-bar-pad;
+	//margin-bottom: $progress-bar-margin-bottom;
+	margin-bottom: ($progress-bar-margin-bottom - $progress-bar-height);
 }
 
 // @mixins

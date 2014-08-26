@@ -430,14 +430,14 @@ jQuery.extend( jQuery.easing,
 		var el = $(this);
 		el.stop().scrollBy(el.height()); //down
 
-		if ( scrollDownAmount % 5 == 4	& scrollDownAmount != 0) {
-			if ( scrollDownAmountWhenRefreshed < scrollDownAmount ) {
-				window.infiniteScroll.scroller.refresh();
-				bindAnchor();
-				scrollDownAmountWhenRefreshed = scrollDownAmount;
+		if ( !($('body').hasClass('page-template-page-gallery-php')) )
+			if ( scrollDownAmount % 5 == 4	& scrollDownAmount != 0) {
+				if ( scrollDownAmountWhenRefreshed < scrollDownAmount ) {
+					window.infiniteScroll.scroller.refresh();
+					bindAnchor();
+					scrollDownAmountWhenRefreshed = scrollDownAmount;
+				}
 			}
-		}
-		
 	}
 
 	$.fn.moveUp = function() {
@@ -498,6 +498,43 @@ jQuery.extend( jQuery.easing,
 		el.stop().scrollTop(el.height() * scrollDownAmount );
 	}
 	*/
+	
+	$(document).keydown(function(e) {
+		var tag = e.target.tagName.toLowerCase();
+
+		{
+		  switch(e.which) {
+			case 37:
+			  if (tag != 'input' && tag != 'textarea') el.moveUp()
+			break;
+			case 39:
+			  if (tag != 'input' && tag != 'textarea') el.moveDown()
+			break;
+			case 38:
+			  if (tag != 'input' && tag != 'textarea') el.moveUp()
+			break;
+			case 40:
+			  if (tag != 'input' && tag != 'textarea') el.moveDown()
+			break;
+			case 33: //page up
+			  if (tag != 'input' && tag != 'textarea') el.moveUp()
+			break;
+			case 34: //page dwn
+			  if (tag != 'input' && tag != 'textarea') el.moveDown()
+			break;
+			/*
+			case 36: //home
+			  el.moveTo(1);
+			break;
+			case 35: //end
+			  el.moveTo(total);
+			break;
+			*/
+			default: return;
+		  }
+		}
+
+	});
 
     return false;
   }
