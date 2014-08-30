@@ -4,10 +4,10 @@
 </div>
 */
 
-
-
 .box{
+	display: block;
 	position: relative;
+	overflow: hidden;
 	//width: 50%;		/* desired width */
 }
 .box:before{

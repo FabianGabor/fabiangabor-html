@@ -72,19 +72,38 @@ $("#scrollDown").click(function() {
 });
 */
 
-/*
+$.fn.scrollBy = function (y) {
+	return this.animate({        
+		scrollTop: '+=' + y
+	}, {
+		duration: 1000,
+		easing: 'easeInOutExpo'
+	});
+};
+
 $('a[href^="#"]').on('click', function(event) {
 	var target = $(this).attr("href");
 	
 	if( target.length ) {
 		event.preventDefault();
 		
+		console.log( $(target).outerHeight()  );
+		//console.log( $("#cv").scrollTop() - $("#kepessegek").offset().top  );
+		
+		$('.main-section').stop().scrollBy( 
+			$(target).offset().top - $('.header').height() 
+			- ( $(window).height() -  $(target).outerHeight() - $('.header').height() * 2 ) / 2
+		);
+		
+		/*
 		$('body, .main-section').animate({
-			scrollTop: $('#cover').height()
+			//scrollTop: $('#cover').height()
+			scrollTop: $("#kepessegek").offset().top
 		}, 1000, 'easeInOutExpo');
+		*/
 	}
 });
-*/
+
 
 
 jQuery( window ).load(function() {
@@ -127,6 +146,9 @@ if ( onepagescroll != null ) {
 		direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
 	});
 }
+
+
+
 
 var resizeId;
 $( window ).resize(function() {	

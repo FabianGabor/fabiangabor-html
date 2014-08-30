@@ -541,6 +541,23 @@
 	background: #121314;
 	color: #88898c;
 	
+	.placeholder-container {
+		background-color: transparent;
+	}
+	
+	.placeholder {
+		position: absolute;
+	}
+	
+	.centerTitle {
+		display: table;
+		
+		.centered {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	
 	.white {
 		color: #fff;
 	}
@@ -575,6 +592,9 @@
 	.headline {
 		margin: 0;
 		letter-spacing: 1px;
+		font-size: $h2-font-size; 
+		line-height: $h2-line-height;
+		margin-top: $h2-margin-top;
 	}
 	
 	.headline, .subtitle {
@@ -584,8 +604,13 @@
 	
 	.dark-box {
 		background: #222326;
-		padding: 1.625rem;
+		background: rgba(0, 0, 0, .5);
+		padding: 1.625rem 0;
 		margin: 0 0 1.625rem * 4;
+		
+		@media #{$medium-up} {
+			padding: 1.625rem;
+		}
 		
 		.headline {
 			color: $primary-color;
@@ -601,7 +626,7 @@
 		.columns {
 			padding: 0 1.625rem;
 		}
-		
+
 		hr {
 			border-color: #393b40;
 			 margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width)) * 2;
@@ -616,6 +641,37 @@
 		}
 	}
 	
+	#portfolio {
+		.dark-box {
+			padding: 1.625rem 1.625rem 0;
+		}
+	}
+	
+	#portfolio .thumbnail {
+		padding: 0 1.625rem 3.25rem;
+	}
+	
+	.clearing-assembled {
+		padding: 0 0 3.25rem;
+	}
+	
+	.clearing-blackout {
+		padding: 3.25rem;
+	}
+	
+	[data-clearing] {
+		width: auto !important;
+	}
+	
+	.clearing-assembled .clearing-container .carousel {
+		margin: 0;
+		height: 15%;
+	}
+	
+	.clearing-thumbs li, [data-clearing] li {
+		height: 100%;
+	}
+	
 	.label {
 		display: block;
 		font-size: $h4-font-size; 
@@ -623,7 +679,7 @@
 		//margin-top: $h4-margin-top;
 		text-transform: uppercase;
 		font-weight: 900;
-		
+
 		&.no-margin {
 			margin: 0;
 		}
@@ -631,5 +687,28 @@
 		&.success {
 			color: $success-color;
 		}
+	}
+	
+	#tapasztalat {
+		.label:last-child {
+			margin-bottom: $paragraph-margin-bottom;
+		}
+	}
+}
+
+#cv.light {
+	background: #f1f2f3;
+	background: rgba(255, 255, 255, .5);
+	
+	.dark-box {
+		background: #fff;
+		
+		hr {
+			border-color: #d9dadd;
+		}
+	}
+	
+	.progress {
+		background: #c9cace;
 	}
 }
