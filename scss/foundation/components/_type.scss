@@ -316,6 +316,22 @@ $align-class-breakpoints:
 	.uppercase {
 		text-transform: uppercase;
 	}
+	
+	.font-weight-300 {
+		font-weight: 300 !important;
+	}
+	
+	.font-weight-600 {
+		font-weight: 600 !important;
+	}
+	
+	.font-weight-700 {
+		font-weight: 700 !important;
+	}
+	
+	.font-weight-900 {
+		font-weight: 900 !important;
+	}
 
     /* Default header styles */
     h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {

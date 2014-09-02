@@ -31,7 +31,7 @@
 	-->
 
 </head>
-<body class="single single-format-image disabled-onepage-scroll">
+<body class="single disabled-onepage-scroll page-template-page-cv-php">
 
 
 <div id="off-canvas-wrap" class="off-canvas-wrap" data-offcanvas>
@@ -66,7 +66,7 @@
 			</a> 
 		</nav>
 		
-		<section class="main-section" id="cv"> <!-- content goes here -->			
+		<section class="main-section" id="main"> <!-- content goes here -->			
 			<div class="row collapse">	
 				
 				<div id="cover" class="large-12 columns placeholder-container media">
@@ -93,7 +93,7 @@
 				<div class="large-12 medium-12 small-12 columns columns post-content">			
 					<div itemprop="articleBody" class="entry-content row">
 						
-						<div id="rolam" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+						<div id="rolam" class="xlarge-9 large-12 medium-12 small-12 xlarge-centered large-centered medium-centered columns">
 							<div class="row dark-box">
 								<div class="large-12 medium-12 small-12 columns">
 									<h1 class="headline h2">Rólam</h1>
@@ -108,7 +108,7 @@
 							</div>
 						</div>
 						
-						<div id="kepessegek" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+						<div id="kepessegek" class="xlarge-9 large-12 medium-12 small-12 xlarge-centered large-centered medium-centered columns">
 							<div class="row dark-box">
 								<div class="large-12 medium-12 small-12 columns">
 									<h1 class="headline h2">Képességek</h1>
@@ -174,7 +174,7 @@
 							</div>
 						</div>
 						
-						<div id="tapasztalat" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+						<div id="tapasztalat" class="xlarge-9 large-12 medium-12 small-12 xlarge-centered large-centered medium-centered columns">
 							<div class="row dark-box">
 								<div class="large-12 medium-12 small-12 columns">
 									<h1 class="headline h2">Szakmai tapasztalat</h1>
@@ -183,17 +183,17 @@
 
 								<div class="section row">
 									<div class="large-3 medium-6 small-12 columns">
-										<a class="label success" href="http://www.bungalow.net/hu/" target="_blank">Bungalow.net</a>
-										<div class="label no-margin">Web designer / web dev</div>
+										<a class="label success font-weight-900" href="http://www.bungalow.net/hu/" target="_blank">Bungalow.net</a>
+										<div class="label no-margin h6 font-weight-900">Web designer / web dev</div>
 									</div>
 									<div class="large-3 medium-6 small-12 columns">
-										<div class="label success">2012.07 - 2014.01</div>
+										<div class="label success font-weight-900">2012.07. - 2014.01.</div>
 										<?php
 											$d1 = new DateTime("2014-01");
 											$d2 = new DateTime("2012-07");
 											$interval = $d1->diff($d2);
 										?>
-										<div class="label no-margin"><?php echo $interval->format('%y év %m hónap'); ?></div>
+										<div class="label no-margin h6 font-weight-900"><?php echo $interval->format('%y év %m hónap'); ?></div>
 									</div>
 									<div class="large-6 medium-12 small-12 columns">
 										<p>Az első online utazási iroda, mely 1996 óta 30887 szálláshelyet kínál. A marketing osztály és informatikai osztály legfőbb része Romániából működik a Bungalow.Net Trading NV irányítása alatt.</p>
@@ -202,17 +202,17 @@
 								
 								<div class="section row">
 									<div class="large-3 medium-6 small-12 columns">
-										<a class="label success" href="http://www.cid-design.ro/english/" target="_blank">CID DESIGN STUDIO</a>
-										<div class="label no-margin">grafikus / dtp</div>
+										<a class="label success font-weight-900" href="http://www.cid-design.ro/english/" target="_blank">CID DESIGN STUDIO</a>
+										<div class="label no-margin h6 font-weight-900">grafikus / dtp</div>
 									</div>
 									<div class="large-3 medium-6 small-12 columns">
-										<div class="label success">2008.07 - 2008.12</div>
+										<div class="label success font-weight-900">2008.07. - 2009.01.</div>
 										<?php
 											$d1 = new DateTime("2008-07");
-											$d2 = new DateTime("2008-12");
+											$d2 = new DateTime("2009-01");
 											$interval = $d1->diff($d2);
 										?>
-										<div class="label no-margin"><?php echo $interval->format('%m hónap'); ?></div>
+										<div class="label no-margin h6 font-weight-900"><?php echo $interval->format('%m hónap'); ?></div>
 									</div>
 									<div class="large-6 medium-6 small-12 columns">
 										<p>Egyike a legnagyobb romániai nyomdáknak / grafikai stúdióknak.</p>
@@ -221,17 +221,17 @@
 								
 								<div class="section row">
 									<div class="large-3 medium-6 small-12 columns">
-										<a class="label success" href="http://www.chespa.eu/page/33/news.html" target="_blank">CHESPA TRANSILVANIA</a>
-										<div class="label no-margin">grafikus / dtp</div>
+										<a class="label success font-weight-900" href="http://www.chespa.eu/page/33/news.html" target="_blank">CHESPA TRANSILVANIA</a>
+										<div class="label no-margin h6 font-weight-900">grafikus / dtp</div>
 									</div>
 									<div class="large-3 medium-6 small-12 columns">
-										<div class="label success">2007.10 - 2008.06</div>
+										<div class="label success font-weight-900">2007.10. - 2008.07.</div>
 										<?php
 											$d1 = new DateTime("2007-10");
-											$d2 = new DateTime("2008-06");
+											$d2 = new DateTime("2008-07");
 											$interval = $d1->diff($d2);
 										?>
-										<div class="label no-margin"><?php echo $interval->format('%m hónap'); ?></div>
+										<div class="label no-margin h6 font-weight-900"><?php echo $interval->format('%m hónap'); ?></div>
 									</div>
 									<div class="large-6 medium-6 small-12 columns">
 										<p>1993 óta működő, 12 országban jelen lévő, grafikai szolgáltatásokat nyújtó és nyomdai festékanyagokat gyártó cég.</p>
@@ -240,7 +240,7 @@
 							</div>
 						</div>
 						
-						<div id="tanulmanyok" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+						<div id="tanulmanyok" class="xlarge-9 large-12 medium-12 small-12 xlarge-centered large-centered medium-centered columns">
 							<div class="row dark-box">
 								<div class="large-12 medium-12 small-12 columns">
 									<h1 class="headline h2">Tanulmányok</h1>
@@ -249,17 +249,17 @@
 
 								<div class="section row">
 									<div class="large-3 medium-6 small-12 columns">
-										<a class="label success" href="http://www.ms.sapientia.ro/hu" target="_blank">Sapientia</a>
-										<div class="label no-margin">Számítástechnika</div>
+										<a class="label success font-weight-900" href="http://www.ms.sapientia.ro/hu" target="_blank">Sapientia</a>
+										<div class="label no-margin h6 font-weight-900">Számítástechnika</div>
 									</div>
 									<div class="large-3 medium-6 small-12 columns">
-										<div class="label success">2006 - 2008</div>
+										<div class="label success font-weight-900">2006 - 2008</div>
 										<?php
 											$d1 = new DateTime("2006-01");
 											$d2 = new DateTime("2008-01");
 											$interval = $d1->diff($d2);
 										?>
-										<div class="label no-margin"><?php echo $interval->format('%y év'); ?></div>
+										<div class="label no-margin h6 font-weight-900"><?php echo $interval->format('%y év'); ?></div>
 									</div>
 									<div class="large-6 medium-12 small-12 columns">
 										<p>Programozási nyelvek, rendszerprogramozás és operációs nyelvek, adatbázisok, adatvédelem, algoritmusok, információelmélet.</p>
@@ -268,17 +268,17 @@
 								
 								<div class="section row">
 									<div class="large-3 medium-6 small-12 columns">
-										<a class="label success" href="http://www.uad.ro/web/en/Structure/Fine_Arts/Photo-Video/" target="_blank">Művészeti és Design Egyetem</a>
-										<div class="label no-margin">Fotó-, videó és számítógépes képfeldolgozás</div>
+										<a class="label success font-weight-900" href="http://www.uad.ro/web/en/Structure/Fine_Arts/Photo-Video/" target="_blank">Művészeti és Design Egyetem</a>
+										<div class="label no-margin h6 font-weight-900">Fotó, videó és számítógépes képfeldolgozás</div>
 									</div>
 									<div class="large-3 medium-6 small-12 columns">
-										<div class="label success">2009 - 2012</div>
+										<div class="label success font-weight-900">2009 - 2012</div>
 										<?php
 											$d1 = new DateTime("2009-01");
 											$d2 = new DateTime("2012-01");
 											$interval = $d1->diff($d2);
 										?>
-										<div class="label no-margin"><?php echo $interval->format('%y év'); ?></div>
+										<div class="label no-margin h6 font-weight-900"><?php echo $interval->format('%y év'); ?></div>
 									</div>
 									<div class="large-6 medium-6 small-12 columns">
 										<p>Románia legrégibb művészeti oktatási intézményeként számontartott Művészeti és Design Egyetem elsődleges célkitűzése, hogy Európa szinten is elismert, híres szakembereket képezzen.</p>
@@ -288,7 +288,7 @@
 						</div>
 					
 					
-						<div id="portfolio" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+						<div id="portfolio" class="xlarge-9 large-12 medium-12 small-12 xlarge-centered large-centered medium-centered columns">
 							<div class="row dark-box">								
 								<div class="large-12 medium-12 small-12 columns">
 									<h1 class="headline h2">Munkáim</h1>
@@ -367,21 +367,16 @@
 </div>
 
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	
-	<script  src="js/foundation.min.js"></script>
-	<script  src="js/foundation/foundation.clearing.js"></script>
-	<script defer src="js/vendor/scripts-combined.min.js"></script>
-	
-	<script>
-		$(document).foundation();
-	</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script defer src="js/vendor/scripts-combined.min.js"></script>
 
-	
-	
-	
-	
-	
+<script src="js/foundation/foundation.js"></script>
+<script src="js/foundation/foundation.clearing.js"></script>
+<!-- Other JS plugins can be included here -->
 
+<script>
+	$(document).foundation();
+</script>
+	
 </body>
 </html>

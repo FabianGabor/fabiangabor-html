@@ -8,7 +8,7 @@
 // @variables
 //
 $include-html-grid-classes: $include-html-classes !default;
-$include-xl-html-grid-classes: false !default;
+$include-xl-html-grid-classes: true !default;
 
 $row-width: rem-calc(1920) !default;
 $total-columns: 12 !default;

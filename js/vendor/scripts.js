@@ -87,20 +87,10 @@ $('a[href^="#"]').on('click', function(event) {
 	if( target.length ) {
 		event.preventDefault();
 		
-		console.log( $(target).outerHeight()  );
-		//console.log( $("#cv").scrollTop() - $("#kepessegek").offset().top  );
-		
 		$('.main-section').stop().scrollBy( 
 			$(target).offset().top - $('.header').height() 
 			- ( $(window).height() -  $(target).outerHeight() - $('.header').height() * 2 ) / 2
 		);
-		
-		/*
-		$('body, .main-section').animate({
-			//scrollTop: $('#cover').height()
-			scrollTop: $("#kepessegek").offset().top
-		}, 1000, 'easeInOutExpo');
-		*/
 	}
 });
 
