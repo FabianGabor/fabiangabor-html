@@ -33,17 +33,20 @@
 </head>
 <body class="single disabled-onepage-scroll page-template-page-cv-php">
 
+<div id="light">
+</div>
 
 <div id="off-canvas-wrap" class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap"> 		
 		<div class="header">
-			<ul class="header-title breadcrumbs">
-				<li><a href="#cover">Borító</a></li>
+			<ul class="header-title breadcrumbs" id="nav">
+				<li class="current"><a href="#cover">Borító</a></li>
 				<li><a href="#rolam">Rólam</a></li>
 				<li><a href="#kepessegek">Képességek</a></li>
 				<li><a href="#tapasztalat">Szakmai tapasztalat</a></li>
 				<li><a href="#tanulmanyok">Tanulmányok</a></li>
 				<li><a href="#portfolio">Munkáim</a></li>
+				<li><a href="#ajanlolevel">ajanlolevel</a></li>
 			</ul>
 		</div>
 		
@@ -70,7 +73,7 @@
 			<div class="row collapse">	
 				
 				<div id="cover" class="large-12 columns placeholder-container media">
-					<span class="placeholder" style="background-image:url(img/prism.jpg)"></span>
+					<span class="placeholder"></span>
 					
 					<div class="bd large-6 large-centered columns">
 						<div class="centerTitle">
@@ -102,7 +105,12 @@
 								<!-- --------------------- -->
 								<div class="section row">
 									<div class="large-12 medium-12 small-12 columns">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+										<?php
+											$d1 = new DateTime();
+											$d2 = new DateTime("1987-02-26");
+											$interval = $d1->diff($d2);
+										?>
+										<p><?php echo $interval->format('%y'); ?> éve születtem Erdélyben, Marosvásárhelyen. Gyermekkorom óta érdekel az informatika világa. Egyetemi éveim alatt kezdtem megismerkedni a vizuális művészetek világával, leginkább a grafika és a fotográfia vonzott. Eleinte nyomdai grafikával, később web designnal kezdtem foglalkozni. A fotográfia többnyire hobbi maradt, de érdekes, kihívásokat jelentő megrendeléseket mindig szívesen elfogadok.</p>
 									</div>
 								</div>
 							</div>
@@ -298,44 +306,65 @@
 								<div class="large-12 medium-12 small-12 columns">
 									<ul data-clearing class="large-block-grid-4 small-block-grid-4">
 										<?php if( function_exists('cyclone_slider') ) cyclone_slider('cvportfolio'); ?>
+										
 										<li>
-											<a class="box ratio16_9" href="img/portfolio/parco-don-antonio/parco-don-antonio-main.jpg">
-												<img class="content" src="img/portfolio/parco-don-antonio/parco-don-antonio-main.jpg">
+											<a rel="gallery" class="box ratio16_9 fancybox" href="img/portfolio/bonaca-holidays.jpg">
+												<img class="content" src="img/portfolio/bonaca-holidays.png">
 											</a>
 										</li>
 										
 										<li>
-											<a class="box ratio16_9" href="img/portfolio/vulcano-residence/vulcano-residence-main.jpg">
-												<img class="content" src="img/portfolio/vulcano-residence/vulcano-residence-main.jpg">
+											<a rel="gallery" class="box ratio16_9 fancybox" href="img/portfolio/bungalow-umbrie.jpg">
+												<img class="content" src="img/portfolio/bungalow-umbrie.png">
 											</a>
 										</li>
 										
 										<li>
-											<a class="box ratio16_9" href="img/portfolio/sani/sanitairverwarming.jpg" >
-												<img class="content" src="img/portfolio/sani/sanitairverwarming.jpg">
+											<a rel="gallery" class="box ratio16_9 fancybox" href="img/portfolio/casa-del-sole.jpg" >
+												<img class="content" src="img/portfolio/casa-del-sole.png">
 											</a>
 										</li>
 										
 										<li>
-											<a class="box ratio16_9" href="img/portfolio/parco-don-antonio/parco-don-antonio-main.jpg">
-												<img class="content" src="img/portfolio/parco-don-antonio/parco-don-antonio-main.jpg">
+											<a rel="gallery" class="box ratio16_9 fancybox" href="img/portfolio/project-gantt-website.jpg" >
+												<img class="content" src="img/portfolio/project-gantt-website.png">
 											</a>
 										</li>
 										
 										<li>
-											<a class="box ratio16_9" href="img/portfolio/vulcano-residence/vulcano-residence-main.jpg">
-												<img class="content" src="img/portfolio/vulcano-residence/vulcano-residence-main.jpg">
+											<a rel="gallery" class="box ratio16_9 fancybox" href="img/portfolio/project-gantt-mobile.jpg" >
+												<img class="content" src="img/portfolio/project-gantt-mobile.png">
 											</a>
 										</li>
-										
-										<li>
-											<a class="box ratio16_9" href="img/portfolio/sani/sanitairverwarming.jpg" >
-												<img class="content" src="img/portfolio/sani/sanitairverwarming.jpg">
-											</a>
-										</li>
+									
 									</ul>
 								</div>
 
+							</div>
+						</div>
+						
+						<div id="ajanlolevel" class="large-8 medium-12 small-12 large-centered medium-centered columns">
+							<div class="row dark-box">
+								<div class="large-12 medium-12 small-12 columns">
+									<h1 class="headline h2">Ajánlólevél</h1>
+									<hr>
+								</div>
+								<!-- --------------------- -->
+								<div class="section row">
+									<div class="large-12 medium-12 small-12 columns">
+										<blockquote>
+											<p>Feladatköréhez tartozott különböző ügyfelek megrendelésére történő weboldal designok készítése. Jó érzéke van az apró részletekhez és kreatív alkalmazásokkal képes gazdagítani weboldalakat.</p>
+											<p>A fotográfusi és programozó képességei többletértéket nyújtanak munkájának.</p>
+											<p>Jellemvonásait tekintve, Fábián Gábor eredményorientáltnak, kitartónak, pontosnak és felelősségtudatosnak bizonyult.</p>
+											
+											<footer>
+												<cite><a href="http://www.bungalow.net/hu/" target="_blank">SC Bungalow Net Internet Services SRL</a></cite> <br>
+												Mr. Willem van der Wilden <br>
+												CEO
+											</footer>
+										</blockquote>
+									</div>
+								</div>
 							</div>
 						</div>
 						
@@ -368,14 +397,33 @@
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script defer src="js/vendor/scripts-combined.min.js"></script>
+<script src="js/vendor/scripts-combined.min.js"></script>
 
-<script src="js/foundation/foundation.js"></script>
-<script src="js/foundation/foundation.clearing.js"></script>
-<!-- Other JS plugins can be included here -->
+
+<script src="js/vendor/jquery.nav.min.js"></script>
+<script src="js/vendor/jquery.fancybox.min.js"></script>
 
 <script>
-	$(document).foundation();
+$(document).ready(function() {
+	$('#nav').onePageNav();
+	
+	$(".fancybox").fancybox({
+		nextEffect  : 'fade',
+		prevEffect  : 'fade',
+		//padding     : 26,
+		//margin      : [78, 78, 78, 78],
+		openEffect  : 'fade',
+		closeEffect : 'fade',
+		mouseWheel: true,
+		
+		helpers:  {
+			thumbs : {
+				width: 150,
+				height: 150
+			}
+		}
+	});
+});
 </script>
 	
 </body>

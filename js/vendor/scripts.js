@@ -55,6 +55,8 @@ function fixHeights() {
 function fixScrollbar() {
 	$('.archive .main-section').css( 'margin-right', -scrollbarWidth() );
 	$('.single .main-section').css( 'margin-right', -scrollbarWidth() );
+	$('.page-template-page-gallery-php .main-section').css( 'margin-right', -scrollbarWidth() );
+	$('.page-template-page-contact-php .main-section').css( 'margin-right', -scrollbarWidth() );
 }
 
 function cover() {
@@ -64,13 +66,6 @@ function cover() {
 	$("#video").css('transform', 'translate3d(0, ' + ($(cover).outerHeight() - $(video).outerHeight())/2 + 'px, 0)' );
 }
 
-/*
-$("#scrollDown").click(function() {
-	$('.main-section').animate({
-		scrollTop: $("#content").offset().top
-	}, 640, 'easeInOutExpo');
-});
-*/
 
 $.fn.scrollBy = function (y) {
 	return this.animate({        
@@ -95,13 +90,6 @@ $('a[href^="#"]').on('click', function(event) {
 });
 
 
-
-jQuery( window ).load(function() {
-	//$(document).foundation();	
-	//requestAnimationFrame(function() {
-		//offCanvasNav();
-	//});
-});
 
 jQuery( document ).ready(function() {
 	//if ( $("#content").height() > windowHeight ) {
@@ -228,4 +216,4 @@ function doneResizing(){
 
 }(jQuery));
 
-$('.js-lazyYT').lazyYT();
+jQuery('.js-lazyYT').lazyYT();

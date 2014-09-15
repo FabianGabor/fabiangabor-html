@@ -145,7 +145,7 @@ $definition-list-margin-bottom: rem-calc(12) !default;
 
 // We use these to style blockquotes
 $blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
-$blockquote-padding: rem-calc(9 20 0 19) !default;
+$blockquote-padding: rem-calc(40) !default;
 $blockquote-border: 1px solid #ddd !default;
 $blockquote-cite-font-size: rem-calc(13) !default;
 $blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
@@ -508,17 +508,43 @@ $align-class-breakpoints:
 
     /* Blockquotes */
     blockquote {
+	  position: relative;
       margin: 0 0 $paragraph-margin-bottom;
-      padding: $blockquote-padding;
-      border-#{$default-float}: $blockquote-border;
+      padding: 0 0 0 $blockquote-padding;
+      #border-#{$default-float}: $blockquote-border;
+	  
+		&:before, &:after {
+			display: block;
+			position: absolute;
+			color: #7a7a7a;
+			font-size: $h1-font-size ;
+			line-height: $h1-line-height ;
+		}
+	  
+	  &:before {	
+		content: "\275D";
+		left: 0;
+		top: -1rem;
+	  }
+	  
+	  /*
+	  &:after {
+		content: "\201D";	
+		right: 0;
+		bottom: -2.625rem;
+	  }
+	  */
 
-      cite {
+      //cite {
+	  footer {
         display: block;
         font-size: $blockquote-cite-font-size;
         color: $blockquote-cite-font-color;
+		/*
         &:before {
           content: "\2014 \0020";
         }
+		*/
 
         a,
         a:visited {
