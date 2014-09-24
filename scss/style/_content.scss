@@ -114,7 +114,7 @@
 	width: 100%;
 	z-index: 99;
 	display: block;
-	transform: translateZ(0);
+	//transform: translateZ(0);
 	background: #fff;
 	//box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 	text-align: center;
@@ -143,29 +143,28 @@
 	font-weight: 300;
 	top: 0;
 	margin: $h3-margin-top / 2 0;
-	transform: translateZ(0);
+	//transform: translateZ(0);
 	display: inline-block;
 }
 
 
-
 .blur {
 	@media #{$medium-up} {
-		filter: blur(3px);
-		-webkit-filter: blur(3px); 
-		-moz-filter: blur(3px); 
-		-o-filter: blur(3px); 
-		-ms-filter: blur(3px);
+		filter: blur(10px);
+		-webkit-filter: blur(10px); 
+		-moz-filter: blur(10px); 
+		-o-filter: blur(10px); 
+		-ms-filter: blur(10px);
 		filter: url(blur.svg#blur);
 	}
 }
 
 .blur-for-all {
-	filter: blur(3px);
-	-webkit-filter: blur(3px); 
-	-moz-filter: blur(3px); 
-	-o-filter: blur(3px); 
-	-ms-filter: blur(3px);
+	filter: blur(10px);
+	-webkit-filter: blur(10px); 
+	-moz-filter: blur(10px); 
+	-o-filter: blur(10px); 
+	-ms-filter: blur(10px);
 	filter: url(blur.svg#blur);
 }
 
@@ -176,8 +175,9 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-	background-size: cover;		
+	background-size: cover;
 	background-position: 50%;
+	background-repeat: no-repeat;
 	//transform: translateZ(0);
 
 	@media #{$medium-up} {
@@ -226,6 +226,14 @@
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
+	}
+	
+	.placeholder {
+		background-size: contain;
+
+		@media #{$medium-up} {
+			background-size: cover;
+		}
 	}
 }
 
@@ -375,7 +383,7 @@
 	position: relative;
 	z-index: 1000;
 	overflow: hidden;	
-	transform: translateZ(0);
+	//transform: translateZ(0); // huge performance drop when enabled
 	
 	.blurbg {
 		display: block;
@@ -753,34 +761,6 @@
 	}
 }
 
-#light {
-	font-family:icon-worksregular;
-	position: fixed;
-	top: 0.8125rem;
-	right: 0.8125rem;
-	width: 1.626rem;
-	height: 1.625rem;
-	//background: red;
-	z-index: 9999;
-	
-	&::before {
-		content: "r";
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-size: 1.625rem;
-		cursor: pointer;
-		
-	}
-	
-	&.active::before {
-		content: "R";
-	}
-}
-
-
 
 
 @font-face {
@@ -815,6 +795,13 @@
 	border: 0;
 	outline: none;
 	vertical-align: top;
+}
+
+.fancybox {
+	display: block;
+	float: left;
+	width: 100%;
+	text-align: center;
 }
 
 .fancybox-wrap {
@@ -1104,6 +1091,15 @@ $input-border-bottom-size: 1px;
 		width: 100%;
 	}
 	
+	.wpcf7-form-control-wrap.your-message {
+		padding: 0 0 1.625rem;
+		height: 100%;
+	}
+	
+	.wpcf7-textarea {
+		height: 100%;
+	}
+	
 	.wpcf7-submit {
 		background: $success-color;
 		border: none;
@@ -1124,6 +1120,12 @@ $input-border-bottom-size: 1px;
 		width: 100%;
 		font-family: Roboto, sans-serif;
 		line-height: $paragraph-line-height;
+	}
+	
+	.wpcf7-not-valid-tip {
+		margin: 0 0 -1.625rem;
+		height: 1.625rem;
+		background: rgba(0, 0, 0, 0.5);
 	}
 }
 
