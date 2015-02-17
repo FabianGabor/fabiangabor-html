@@ -9,7 +9,7 @@
 //
 $include-html-visibility-classes: $include-html-classes !default;
 $include-accessibility-classes: true !default;
-$include-table-visibility-classes: true !default;
+$include-table-visibility-classes: false !default;
 $include-legacy-visibility-classes: true !default;
 
 //
@@ -60,6 +60,7 @@ $visibility-breakpoint-queries:
         $visibility-hidden-list: append($visibility-hidden-list, unquote(
           '.visible-for-#{$visibility-comparison-breakpoint}-only, .hidden-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		/*
         $visibility-table-list: append($visibility-table-list, unquote(
           'table.hide-for-#{$visibility-comparison-breakpoint}-only, table.show-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
@@ -75,6 +76,7 @@ $visibility-breakpoint-queries:
         $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
           'th.hide-for-#{$visibility-comparison-breakpoint}-only, td.hide-for-#{$visibility-comparison-breakpoint}-only, th.show-for-#{$visibility-comparison-breakpoint}-up, td.show-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		*/
 
         // Foundation 4 compatibility:
         // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
@@ -92,6 +94,7 @@ $visibility-breakpoint-queries:
           $visibility-hidden-list: append($visibility-hidden-list, unquote(
             '.visible-for-#{$visibility-comparison-breakpoint}, .visible-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  /*
           $visibility-table-list: append($visibility-table-list, unquote(
             'table.hide-for-#{$visibility-comparison-breakpoint}, table.hide-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
@@ -107,6 +110,7 @@ $visibility-breakpoint-queries:
           $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
             'th.hide-for-#{$visibility-comparison-breakpoint}, td.hide-for-#{$visibility-comparison-breakpoint}, th.hide-for-#{$visibility-comparison-breakpoint}-down, td.hide-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  */
         }
 
       } @else if index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) > index($visibility-breakpoint-sizes, $current-visibility-breakpoint) {
@@ -124,6 +128,7 @@ $visibility-breakpoint-queries:
         $visibility-hidden-list: append($visibility-hidden-list, unquote(
           '.visible-for-#{$visibility-comparison-breakpoint}-only, .visible-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		/*
         $visibility-table-list: append($visibility-table-list, unquote(
           'table.hide-for-#{$visibility-comparison-breakpoint}-only, table.hide-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
@@ -139,6 +144,7 @@ $visibility-breakpoint-queries:
         $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
           'th.hide-for-#{$visibility-comparison-breakpoint}-only, td.hide-for-#{$visibility-comparison-breakpoint}-only, th.hide-for-#{$visibility-comparison-breakpoint}-up, td.hide-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		*/
 
         // Foundation 4 compatibility:
         // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
@@ -156,6 +162,7 @@ $visibility-breakpoint-queries:
           $visibility-hidden-list: append($visibility-hidden-list, unquote(
             '.visible-for-#{$visibility-comparison-breakpoint}, .hidden-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  /*
           $visibility-table-list: append($visibility-table-list, unquote(
             'table.hide-for-#{$visibility-comparison-breakpoint}, table.show-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
@@ -171,6 +178,7 @@ $visibility-breakpoint-queries:
           $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
             'th.hide-for-#{$visibility-comparison-breakpoint}, td.hide-for-#{$visibility-comparison-breakpoint}, th.show-for-#{$visibility-comparison-breakpoint}-down, td.show-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  */
         }
 
       } @else {
@@ -188,6 +196,7 @@ $visibility-breakpoint-queries:
         $visibility-hidden-list: append($visibility-hidden-list, unquote(
           '.hidden-for-#{$visibility-comparison-breakpoint}-only, .hidden-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		/*
         $visibility-table-list: append($visibility-table-list, unquote(
           'table.show-for-#{$visibility-comparison-breakpoint}-only, table.show-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
@@ -203,6 +212,7 @@ $visibility-breakpoint-queries:
         $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
           'th.show-for-#{$visibility-comparison-breakpoint}-only, td.show-for-#{$visibility-comparison-breakpoint}-only, th.show-for-#{$visibility-comparison-breakpoint}-up, td.show-for-#{$visibility-comparison-breakpoint}-up'
         ), comma);
+		*/
 
         // Foundation 4 compatibility:
         // Include .show/hide-for-[size] and .show/hide-for-[size]-down classes
@@ -220,6 +230,7 @@ $visibility-breakpoint-queries:
           $visibility-hidden-list: append($visibility-hidden-list, unquote(
             '.hidden-for-#{$visibility-comparison-breakpoint}, .hidden-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  /*
           $visibility-table-list: append($visibility-table-list, unquote(
             'table.show-for-#{$visibility-comparison-breakpoint}, table.show-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
@@ -235,6 +246,7 @@ $visibility-breakpoint-queries:
           $visibility-table-cell-list: append($visibility-table-cell-list, unquote(
             'th.show-for-#{$visibility-comparison-breakpoint}, td.show-for-#{$visibility-comparison-breakpoint}, th.show-for-#{$visibility-comparison-breakpoint}-down, td.show-for-#{$visibility-comparison-breakpoint}-down'
           ), comma);
+		  */
         }
       }
     }
@@ -288,6 +300,7 @@ $visibility-breakpoint-queries:
   .show-for-portrait { display: none !important; }
 
   /* Specific visibility for tables */
+  /*
   table {
     &.hide-for-landscape,
     &.show-for-portrait { display: table; }
@@ -309,6 +322,7 @@ $visibility-breakpoint-queries:
     &.hide-for-landscape,
     &.show-for-portrait { display: table-cell !important; }
   }
+  */
 
   @media #{$landscape} {
     .show-for-landscape,
@@ -317,6 +331,7 @@ $visibility-breakpoint-queries:
     .show-for-portrait { display: none !important; }
 
     /* Specific visibility for tables */
+	/*
     table {
       &.show-for-landscape,
       &.hide-for-portrait { display: table; }
@@ -338,6 +353,7 @@ $visibility-breakpoint-queries:
       &.show-for-landscape,
       &.hide-for-portrait { display: table-cell !important; }
     }
+	*/
   }
 
   @media #{$portrait} {
@@ -347,6 +363,7 @@ $visibility-breakpoint-queries:
     .show-for-landscape { display: none !important; }
 
     /* Specific visibility for tables */
+	/*
     table {
       &.show-for-portrait,
       &.hide-for-landscape { display: table; }
@@ -368,6 +385,7 @@ $visibility-breakpoint-queries:
       &.show-for-portrait,
       &.hide-for-landscape { display: table-cell !important; }
     }
+	*/
   }
 
   /* Touch-enabled device targeting */
@@ -377,6 +395,7 @@ $visibility-breakpoint-queries:
   .touch .hide-for-touch { display: none !important; }
 
   /* Specific visibility for tables */
+  /*
   table.hide-for-touch { display: table; }
   .touch table.show-for-touch { display: table; }
   thead.hide-for-touch { display: table-header-group !important; }
@@ -389,6 +408,7 @@ $visibility-breakpoint-queries:
   .touch td.show-for-touch { display: table-cell !important; }
   th.hide-for-touch { display: table-cell !important; }
   .touch th.show-for-touch { display: table-cell !important; }
+  */
 
 
   /* Print visibility */
@@ -396,12 +416,14 @@ $visibility-breakpoint-queries:
     .show-for-print { display: block; }
     .hide-for-print { display: none; }
 
+	/*
     table.show-for-print { display: table; }
     thead.show-for-print { display: table-header-group !important; }
     tbody.show-for-print { display: table-row-group !important; }
     tr.show-for-print { display: table-row !important; }
     td.show-for-print { display: table-cell !important; }
     th.show-for-print { display: table-cell !important; }
+	*/
 
   }
 

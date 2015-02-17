@@ -233,6 +233,7 @@
 
 		@media #{$medium-up} {
 			background-size: cover;
+			transform: translateZ(0);
 		}
 	}
 }
